@@ -45,9 +45,15 @@
 
 
                     <src:MapControl x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3" Margin="161,0,0.2,87.4"  />
-                    <TextBlock Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="397"  Margin="0,0,0.2,19.4" Text="Fotos x     Notas Y "></TextBlock>
-
-                </Grid>
+                    <TextBlock Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="397"  Margin="0,0,0,19.4" Text="Fotos x     Notas Y "></TextBlock>
+                    <Button Content="Ver Notas"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Bottom"
+		Width="65"
+		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,83.2,15.4"/>
+                
+    </Grid>
 
             </TabItem>
             <TabItem Name="Planear" Header="Planear Viagem" HorizontalAlignment="Right"  Margin="-2,-2,0.4,-2" Width="104" >
@@ -106,7 +112,7 @@
 
 
                     <src:MapControl x:Name="mapControl3" Zoom="25" MaxZoom="30" MinZoom="3" Margin="166,0,0.2,108.4" />
-                    <TextBlock Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="397"  Margin="0,0,0.2,35.4" Text="Descrição"></TextBlock>
+                    <TextBlock Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="407"  Margin="0,0,0,35.4" Text="Descrição"></TextBlock>
                     <Button Content="Activar"
 		HorizontalAlignment="Right"
 		
