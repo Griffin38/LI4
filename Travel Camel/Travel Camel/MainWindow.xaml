@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_Camel"
+        xmlns:src="clr-namespace:Travel_CamelMap"
         mc:Ignorable="d"
         Title="Travel Camel" Height="350" Width="525">
     <Grid>
@@ -11,11 +12,11 @@
             <TabItem Header="Inicio">
                 <Grid >
                     <Grid.Background>
-                        <ImageBrush ImageSource="C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\Images\84.png" />
+                        <ImageBrush ImageSource="C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\Images\camelos.jpg" />
                     </Grid.Background>
 
                     <TextBlock HorizontalAlignment="Center"
-			       Margin="126,235,123.8,57.4"
+			       Margin="125,65,123.2,227.4"
 			       TextWrapping="Wrap"
 			       Text="Bem vindo ao Travel Camel."
 			       VerticalAlignment="Center" Width="159" Height="22"
@@ -31,11 +32,90 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Locais Visitados" />
+            <TabItem Name="Viagens"  Header="Viagens" >
+                <Grid >
+
+                    <ListBox HorizontalAlignment="Left"   SelectionChanged="ListBox_SelectionChanged" Margin="0,0,0,87.4"  >
 
 
-            <TabItem Header="Planear Viagem" />
-            <TabItem Header="Começar Viagem" />
+                        <ListBoxItem>Adicionar viajens completas</ListBoxItem>
+                        <ListBoxItem>click na viagem -> mapa</ListBoxItem>
+                        <ListBoxItem>Click marker -> Notas</ListBoxItem>
+                    </ListBox>
+
+
+                    <src:MapControl x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3" Margin="161,0,0.2,87.4"  />
+                    <TextBlock Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="397"  Margin="0,0,0.2,19.4" Text="Fotos x     Notas Y "></TextBlock>
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Name="Planear" Header="Planear Viagem" HorizontalAlignment="Right"  Margin="-2,-2,0.4,-2" Width="104" >
+                <Grid Margin="0,0,0.2,0.4">
+                    <TextBox Name="cidadeS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="20" Text="Cidade"/>
+                    <Button Content="Pesquisar"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Top"
+		Width="65"
+		Click="Button_ClickSearch" Height="20"/>
+
+
+
+                    <ListBox HorizontalAlignment="Left" Margin="0,25,0,103.4"  >
+
+
+                        <ListBoxItem>Pontos de Interesse</ListBoxItem>
+
+                    </ListBox>
+
+
+                    <src:MapControl x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3" Margin="118,25,0,35"  />
+                    <TextBox Name="Desc"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="118" Height="98"   AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+
+
+
+                    <Button Content="Adicionar Ponto"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Bottom
+                                "
+		Width="98"
+		Click="Button_ClickPonto" Height="20" Margin="0,0,106,2"/>
+                    <Button Content="Completar"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Bottom"
+		Width="65"
+		Click="Button_ClickFim" Height="20" Margin="0,3,25,4"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Name="comecar" Header="Começar Viagem" >
+
+
+                <Grid >
+
+                    <ListBox HorizontalAlignment="Left"  Width="161" Margin="0,0,0,108.4"  >
+
+                        <ListBoxItem>Viagens planeadas</ListBoxItem>
+                        <ListBoxItem>click na viagem -> mapa</ListBoxItem>
+                        <ListBoxItem>Click marker -> Tooltip</ListBoxItem>
+                    </ListBox>
+
+
+                    <src:MapControl x:Name="mapControl3" Zoom="25" MaxZoom="30" MinZoom="3" Margin="166,0,0.2,108.4" />
+                    <TextBlock Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="397"  Margin="0,0,0.2,35.4" Text="Descrição"></TextBlock>
+                    <Button Content="Activar"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Bottom"
+		Width="65"
+		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,83.2,15.4"/>
+                </Grid>
+
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
