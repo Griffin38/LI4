@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_Camel"
+        xmlns:src="clr-namespace:Travel_CamelMap"
         mc:Ignorable="d"
         Title="Travel Camel" Height="350" Width="525">
     <Grid>
@@ -31,11 +32,78 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Locais Visitados" />
+            <TabItem Header="Viagens" >
+                <Grid Margin="10">
+
+                    <ListBox HorizontalAlignment="Left" >
 
 
-            <TabItem Header="Planear Viagem" />
-            <TabItem Header="Começar Viagem" />
+                        <ListBoxItem>Adicionar viajens do utilizador</ListBoxItem>
+                        <ListBoxItem>Viagem 1 - Completa</ListBoxItem>
+                        <ListBoxItem>Viagem 2 - Planeada</ListBoxItem>
+                    </ListBox>
+
+
+                    <src:MapControl x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3" Margin="180,0,-0.2,0.4" />
+
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Planear Viagem" >
+                <Grid>
+                    <TextBox Name="cidadeS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="20" Text="Cidade"/>
+                    <Button Content="Pesquisar"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Top"
+		Width="65"
+		Click="Button_ClickSearch" Height="20"/>
+
+                    <Grid Margin="0,25,-0.2,27.4" >
+
+                        <ListBox HorizontalAlignment="Left" Margin="0,0,0,113"  >
+
+
+                            <ListBoxItem>Pontos de Interesse</ListBoxItem>
+
+                        </ListBox>
+
+
+                        <src:MapControl x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3" Margin="118,0,0,0"  />
+                        <TextBox Name="Desc"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="118" Height="98"  Margin="0,0,0,10" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+
+                    </Grid>
+                    <Grid Margin="0,287,-0.2,0.4">
+                        <Button Content="Adicionar Ponto"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Center
+                                "
+		Width="98"
+		Click="Button_ClickPonto" Height="20" Margin="0,0,106,2"/>
+                        <Button Content="Completar"
+		HorizontalAlignment="Right"
+		
+		VerticalAlignment="Center"
+		Width="65"
+		Click="Button_ClickFim" Height="20" Margin="0,3,25,4"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Começar Viagem" >
+                <Grid>
+
+                    <ListBox HorizontalAlignment="Left"  >
+
+
+                        <ListBoxItem>Viagens</ListBoxItem>
+
+                    </ListBox>
+                    
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
