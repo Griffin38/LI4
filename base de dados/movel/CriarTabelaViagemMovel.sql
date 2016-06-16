@@ -1,0 +1,37 @@
+USE [LI4Movel]
+GO
+
+/****** Object:  Table [dbo].[Viagem]    Script Date: 16/06/2016 21:57:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Viagem](
+	[IdViagem] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [nchar](75) NOT NULL,
+	[DataInicio] [date] NULL,
+	[DataFim] [date] NULL,
+	[IdWebSite] [int] NOT NULL,
+	[IdUtilizador] [int] NOT NULL,
+ CONSTRAINT [PK_Viagem] PRIMARY KEY CLUSTERED 
+(
+	[IdViagem] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IdWebViagem] UNIQUE NONCLUSTERED 
+(
+	[IdWebSite] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Viagem]  WITH CHECK ADD  CONSTRAINT [FK_Viagem_Utilizador1] FOREIGN KEY([IdViagem])
+REFERENCES [dbo].[Utilizador] ([IDUtilizador])
+GO
+
+ALTER TABLE [dbo].[Viagem] CHECK CONSTRAINT [FK_Viagem_Utilizador1]
+GO
+
+

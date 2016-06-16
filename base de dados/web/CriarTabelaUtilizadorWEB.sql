@@ -1,0 +1,53 @@
+USE [LI4]
+GO
+
+/****** Object:  Table [dbo].[Utilizador]    Script Date: 16/06/2016 21:55:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Utilizador](
+	[IdUtilizador] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](75) NOT NULL,
+	[NickName] [varchar](75) NOT NULL,
+	[Email] [varchar](75) NOT NULL,
+	[Password] [varchar](75) NOT NULL,
+	[idPais] [int] NOT NULL,
+ CONSTRAINT [PK_Utilizador] PRIMARY KEY CLUSTERED 
+(
+	[IdUtilizador] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [Email] UNIQUE NONCLUSTERED 
+(
+	[Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [Nick] UNIQUE NONCLUSTERED 
+(
+	[NickName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Utilizador]  WITH CHECK ADD  CONSTRAINT [FK_Utilizador_Pais] FOREIGN KEY([idPais])
+REFERENCES [dbo].[Pais] ([IdPais])
+GO
+
+ALTER TABLE [dbo].[Utilizador] CHECK CONSTRAINT [FK_Utilizador_Pais]
+GO
+
+ALTER TABLE [dbo].[Utilizador]  WITH CHECK ADD  CONSTRAINT [Password] CHECK  ((len([Password])>=(7)))
+GO
+
+ALTER TABLE [dbo].[Utilizador] CHECK CONSTRAINT [Password]
+GO
+
+
