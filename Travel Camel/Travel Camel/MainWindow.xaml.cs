@@ -30,6 +30,9 @@ namespace Travel_Camel
         {
 
             InitializeComponent();
+            this.comecar.Visibility = Visibility.Hidden;
+            this.Planear.Visibility = Visibility.Hidden;
+            this.Viagens.Visibility = Visibility.Hidden;
             MapLoad();
         }
         
@@ -37,12 +40,17 @@ namespace Travel_Camel
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Title = "Grifin e o Rei";
+            this.comecar.Visibility = Visibility.Visible;
+            this.Planear.Visibility = Visibility.Visible;
+            this.Viagens.Visibility = Visibility.Visible;
         }
         private void Button_ClickPonto(object sender, RoutedEventArgs e)
         {
         }
         private void Button_ClickFim(object sender, RoutedEventArgs e)
-        { }
+        {
+        }
+
         private void Button_ClickSearch(object sender, RoutedEventArgs e)
         {
 
@@ -54,17 +62,23 @@ namespace Travel_Camel
             //markers 
 
         }
+
         private void MapLoad()
         {
+          
             // Initialize map:
             mapControl.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             mapControl2.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             mapControl2.Zoom = 10;
             mapControl.Zoom = 15;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            mapControl.SetPositionByKeywords("Maputo, Mozambique");
+            mapControl.SetPositionByKeywords("Braga, Portugal");
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     
