@@ -1,7 +1,7 @@
 USE [LI4]
 GO
 
-/****** Object:  Table [dbo].[Utilizador]    Script Date: 16/06/2016 21:55:19 ******/
+/****** Object:  Table [dbo].[Utilizador]    Script Date: 16/06/2016 22:51:42 ******/
 SET ANSI_NULLS ON
 GO
 

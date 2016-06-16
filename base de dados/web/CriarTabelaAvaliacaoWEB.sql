@@ -1,7 +1,7 @@
 USE [LI4]
 GO
 
-/****** Object:  Table [dbo].[Avaliacao]    Script Date: 16/06/2016 21:52:34 ******/
+/****** Object:  Table [dbo].[Avaliacao]    Script Date: 16/06/2016 22:48:08 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[Avaliacao](
 	[IDAvaliacao] [int] IDENTITY(1,1) NOT NULL,
 	[IDUtilizador] [int] NOT NULL,
 	[IDPontoInteresse] [int] NOT NULL,
-	[AvaliacaoP] [int] NOT NULL,
+	[Avaliacao] [int] NOT NULL,
  CONSTRAINT [PK_Avaliacao] PRIMARY KEY CLUSTERED 
 (
 	[IDAvaliacao] ASC
@@ -21,11 +21,11 @@ CREATE TABLE [dbo].[Avaliacao](
 
 GO
 
-ALTER TABLE [dbo].[Avaliacao]  WITH CHECK ADD  CONSTRAINT [FK_Avaliacao_Pontos_Interesse] FOREIGN KEY([IDPontoInteresse])
+ALTER TABLE [dbo].[Avaliacao]  WITH CHECK ADD  CONSTRAINT [FK_Avaliacao_PontoInteresse] FOREIGN KEY([IDPontoInteresse])
 REFERENCES [dbo].[Pontos_Interesse] ([idPonto])
 GO
 
-ALTER TABLE [dbo].[Avaliacao] CHECK CONSTRAINT [FK_Avaliacao_Pontos_Interesse]
+ALTER TABLE [dbo].[Avaliacao] CHECK CONSTRAINT [FK_Avaliacao_PontoInteresse]
 GO
 
 ALTER TABLE [dbo].[Avaliacao]  WITH CHECK ADD  CONSTRAINT [FK_Avaliacao_Utilizador] FOREIGN KEY([IDUtilizador])

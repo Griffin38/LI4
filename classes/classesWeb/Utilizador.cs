@@ -6,6 +6,7 @@ public class Utilizador
     private String palavra_Passe;
     private String nick_Name;
     private String email;
+    private ArrayList<Viagens> viagens;
 
 
     public Utilizador()

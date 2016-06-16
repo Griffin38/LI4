@@ -1,7 +1,7 @@
 USE [LI4]
 GO
 
-/****** Object:  Table [dbo].[PontosVisitados]    Script Date: 16/06/2016 21:54:59 ******/
+/****** Object:  Table [dbo].[PontosVisitados]    Script Date: 16/06/2016 22:51:23 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -30,11 +30,11 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[PontosVisitados]  WITH CHECK ADD  CONSTRAINT [FK_Viagem_Ponto_Pontos_Interesse] FOREIGN KEY([idPonto])
+ALTER TABLE [dbo].[PontosVisitados]  WITH CHECK ADD  CONSTRAINT [FK_PontosVisitados_PontosInteresse] FOREIGN KEY([idPonto])
 REFERENCES [dbo].[Pontos_Interesse] ([idPonto])
 GO
 
-ALTER TABLE [dbo].[PontosVisitados] CHECK CONSTRAINT [FK_Viagem_Ponto_Pontos_Interesse]
+ALTER TABLE [dbo].[PontosVisitados] CHECK CONSTRAINT [FK_PontosVisitados_PontosInteresse]
 GO
 
 ALTER TABLE [dbo].[PontosVisitados]  WITH CHECK ADD  CONSTRAINT [FK_Viagem_Ponto_Viagem] FOREIGN KEY([idViagem])

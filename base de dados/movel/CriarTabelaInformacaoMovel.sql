@@ -1,7 +1,7 @@
 USE [LI4Movel]
 GO
 
-/****** Object:  Table [dbo].[Informacao]    Script Date: 16/06/2016 21:56:12 ******/
+/****** Object:  Table [dbo].[Informacao]    Script Date: 16/06/2016 22:52:58 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -27,6 +27,13 @@ CREATE TABLE [dbo].[Informacao](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [dbo].[Informacao]  WITH CHECK ADD  CONSTRAINT [FK_Informacao_Pontos_Interesse] FOREIGN KEY([IDpontoInteresse])
+REFERENCES [dbo].[Ponto_Interesse] ([IdPonto])
+GO
+
+ALTER TABLE [dbo].[Informacao] CHECK CONSTRAINT [FK_Informacao_Pontos_Interesse]
 GO
 
 ALTER TABLE [dbo].[Informacao]  WITH CHECK ADD  CONSTRAINT [FK_Informacao_Utilizador] FOREIGN KEY([IDUtilizador])

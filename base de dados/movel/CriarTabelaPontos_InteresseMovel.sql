@@ -1,7 +1,7 @@
 USE [LI4Movel]
 GO
 
-/****** Object:  Table [dbo].[Ponto_Interesse]    Script Date: 16/06/2016 21:56:28 ******/
+/****** Object:  Table [dbo].[Ponto_Interesse]    Script Date: 16/06/2016 22:53:17 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,7 +15,6 @@ CREATE TABLE [dbo].[Ponto_Interesse](
 	[idPontoWeb] [int] NOT NULL,
 	[Avaliacao] [int] NULL,
 	[IDViagem] [int] IDENTITY(1,1) NOT NULL,
-	[IDInformacao] [int] NOT NULL,
  CONSTRAINT [PK_Ponto_Interesse] PRIMARY KEY CLUSTERED 
 (
 	[IdPonto] ASC
@@ -30,13 +29,6 @@ CREATE TABLE [dbo].[Ponto_Interesse](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-GO
-
-ALTER TABLE [dbo].[Ponto_Interesse]  WITH CHECK ADD  CONSTRAINT [FK_Ponto_Interesse_Informacao] FOREIGN KEY([IDInformacao])
-REFERENCES [dbo].[Informacao] ([IdInformacao])
-GO
-
-ALTER TABLE [dbo].[Ponto_Interesse] CHECK CONSTRAINT [FK_Ponto_Interesse_Informacao]
 GO
 
 ALTER TABLE [dbo].[Ponto_Interesse]  WITH CHECK ADD  CONSTRAINT [FK_Ponto_Interesse_Viagem1] FOREIGN KEY([IDViagem])
