@@ -13,21 +13,31 @@
 
         <Grid>
 
+     
+
+
+  
+   
+
             <TabControl TabStripPlacement="Left">
                 <TabControl.Background>
                     <ImageBrush ImageSource="C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\Images\camelos.jpg" />
                 </TabControl.Background>
-                <TabItem Header="Inicio" >
+
+
+                <TabItem Header="Inicio" Height="24" VerticalAlignment="Top" >
+                   
                     <Grid Name="inic">
-                        <TextBlock HorizontalAlignment="Center"
-    			       Margin="125,65,123.2,227.4"
-    			       TextWrapping="Wrap"
-    			       Text="Bem vindo ao Travel Camel."
-    			       VerticalAlignment="Center" Width="159" Height="22"
-    			      />
+   
+
+            <TextBlock HorizontalAlignment="Center"
+	       Margin="125,65,123.2,227.4"
+	       TextWrapping="Wrap"
+   	       Text="Bem vindo ao Travel Camel."
+           VerticalAlignment="Center" Width="159" Height="22"/>
 
 
-                        <Button Content="Login"
+             <Button Content="Login"
     		HorizontalAlignment="Center"
     		Margin="169,198,164.8,91.4"
     		VerticalAlignment="Center"
@@ -35,66 +45,94 @@
     		Click="Button_Click" Height="25"/>
 
                     </Grid>
+
+
                 </TabItem>
+
+
                 <TabItem Name="Viagens"  Header="Viagens" >
+
+
                     <Grid >
+  <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+         <RowDefinition Height="90" />
+        </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-                        <ListBox HorizontalAlignment="Left"   SelectionChanged="ListBox_SelectionChanged" Margin="0,0,0,87.4"  >
-
-
+                        <ListBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   SelectionChanged="ListBox_SelectionChanged"   >
                             <ListBoxItem>Adicionar viajens completas</ListBoxItem>
                             <ListBoxItem>click na viagem -> mapa</ListBoxItem>
                             <ListBoxItem>Click marker -> Notas</ListBoxItem>
                         </ListBox>
 
 
-                        <src:MapControl x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3" Margin="161,0,0.2,87.4"  />
-                        <TextBlock Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="189"  Margin="0,0,-0.2,19.6" Text="Fotos x     Notas Y "></TextBlock>
-                        <Button Content="Ver Notas"
+                      
+                      <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"   />
+
+                        <TextBlock Grid.Column="0" Grid.Row="1" Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom"    Text="Fotos x     Notas Y "></TextBlock>
+
+                        <Button Grid.Column="1" Grid.Row="1" Content="Ver Notas"
     		HorizontalAlignment="Right"
-    		
     		VerticalAlignment="Bottom"
     		Width="65"
-    		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,83.2,15.4"/>
+    		Click="Button_ClickSearch" Height="30" RenderTransformOrigin="-0.457,-0.21" />
+
 
                     </Grid>
 
                 </TabItem>
+
+
+
+
                 <TabItem Name="Planear" Header="Planear Viagem" HorizontalAlignment="Right"  Margin="-2,-2,0.4,-2" Width="104" >
-                    <Grid Margin="0,0,0.2,0.4">
-                        <TextBox Name="cidadeS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="20" Text="Cidade"/>
-                        <Button Content="Pesquisar"
+
+
+                    <Grid>
+
+<Grid.RowDefinitions>
+     <RowDefinition Height="30" />
+        <RowDefinition Height="*" />
+         <RowDefinition Height="90" />
+        </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" Grid.Row="0" Name="cidadeS" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top"  Text="Cidade"/>
+
+                        <Button Grid.Column="1" Grid.Row="0" Content="Pesquisar"
     		HorizontalAlignment="Right"
-    		
     		VerticalAlignment="Top"
-    		Width="65"
-    		Click="Button_ClickSearch" Height="20"/>
+    		
+    		Click="Button_ClickSearch" Height="30"/>
 
 
 
-                        <ListBox HorizontalAlignment="Left" Margin="0,25,0,103.4"  >
-
-
-                            <ListBoxItem>Pontos de Interesse</ListBoxItem>
+                        <ListBox Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"   >
+                         <ListBoxItem>Pontos de Interesse</ListBoxItem>
 
                         </ListBox>
 
 
-                        <src:MapControl x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3" Margin="118,25,0,35"  />
-                        <TextBox Name="Desc"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="118" Height="98"   AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+                        <src:MapControl Grid.Column="1" Grid.Row="1" x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3"   />
+
+                        <TextBox Grid.Column="0" Grid.Row="2" Name="Desc"      AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
 
 
 
-                        <Button Content="Adicionar Ponto"
+                        <Button Grid.Column="1" Grid.Row="2" Content="Adicionar Ponto"
     		HorizontalAlignment="Right"
-    		
-    		VerticalAlignment="Bottom
-                                    "
+    		VerticalAlignment="Bottom"
     		Width="98"
     		Click="Button_ClickPonto" Height="20" Margin="0,0,106,2"/>
-                        <Button Content="Completar"
+                        <Button  Grid.Column="1" Grid.Row="2" Content="Completar"
     		HorizontalAlignment="Right"
-    		
     		VerticalAlignment="Bottom"
     		Width="65"
     		Click="Button_ClickFim" Height="20" Margin="0,3,25,4"/>
@@ -102,30 +140,45 @@
 
                     </Grid>
                 </TabItem>
+
+
+
                 <TabItem Name="comecar" Header="Começar Viagem" >
 
 
                     <Grid >
 
-                        <ListBox HorizontalAlignment="Left"  Width="161" Margin="0,0,0,108.4"  >
+  <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+         <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-                            <ListBoxItem>Viagens planeadas</ListBoxItem>
+                        <ListBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   >
+                             <ListBoxItem>Viagens planeadas</ListBoxItem>
                             <ListBoxItem>click na viagem -> mapa</ListBoxItem>
                             <ListBoxItem>Click marker -> Tooltip</ListBoxItem>
                         </ListBox>
 
 
-                        <src:MapControl x:Name="mapControl3" Zoom="25" MaxZoom="30" MinZoom="3" Margin="166,0,0.2,108.4" />
-                        <TextBlock Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="68" Width="407"  Margin="0,0,0,35.4" Text="Descrição"></TextBlock>
-                        <Button Content="Activar"
+                        <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl3" Zoom="25" MaxZoom="30" MinZoom="3"  />
+
+                        <TextBlock Grid.Column="0" Grid.Row="1" Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom"   Margin="0,0,0,35.4" Text="Descrição"></TextBlock>
+
+                        <Button Grid.Column="1" Grid.Row="1" Content="Activar"
     		HorizontalAlignment="Right"
-    		
-    		VerticalAlignment="Bottom"
+    	   VerticalAlignment="Bottom"
     		Width="65"
     		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,83.2,15.4"/>
+
                     </Grid>
 
                 </TabItem>
+
+
             </TabControl>
         </Grid>
     </Page>
