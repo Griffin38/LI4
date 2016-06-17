@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 public class Utilizador
 {
@@ -6,7 +7,12 @@ public class Utilizador
     private String palavra_Passe;
     private String nick_Name;
     private String email;
-    private ArrayList<Viagens> viagens;
+    private String pais;
+    private ArrayList viagens;
+    private ArrayList avaliacoes;
+    private ArrayList pontosGuardados;
+   
+
 
 
     public Utilizador()
@@ -15,61 +21,43 @@ public class Utilizador
         this.email = "";
         this.nick_Name = "";
         this.palavra_Passe = "";
+        this.avaliacoes = new ArrayList();
+        this.pontosGuardados = new ArrayList();
+        this.viagens = new ArrayList();
+        this.pais = "";
 	}
 
 
-    public Utilizador(String nome, String palavra_Passe, String nick_Name, String email) {
+    public Utilizador(String nome, String palavra_Passe, String nick_Name, String email,String pais, ArrayList avaliacoes, ArrayList viagens, ArrayList pontos) {
         this.nome = nome;
         this.palavra_Passe = palavra_Passe;
         this.email = email;
         this.nick_Name = nick_Name;
+        this.pais = pais;
+        this.viagens = new ArrayList();
+        this.avaliacoes = new ArrayList();
+        this.pontosGuardados = new ArrayList();
+        foreach (Object o in viagens )
+        {
+            this.viagens.add(o);
+        }
+
+        foreach (Object o in avaliacoes)
+        {
+            this.avaliacoe.add(o);
+        }
+
+        foreach (Object o in pontos)
+        {
+            this.pontosGuardados.add(o);
+        }
     }
 
-    public Utilizador(Utilizador p)
-    {
-        this.email = p.getEmail();
-        this.palavra_Passe = p.getPassWord();
-        this.nome = p.getNome();
-        this.nick_Name = p.getNickName();
-    }
-
-    public String getEmail() {
-        return this.email;
-
-    }
+   
 
 
-    public String getNickName()
-    {
-        return this.nick_Name;
 
-    }
-
-
-    public String getPassWord()
-    {
-        return this.palavra_Passe;
-
-
-    }
-
-    public String getNome()
-    {
-        return this.nome;
-
-    }
-
-
-    public override bool Equals(Object obj)
-    {
-        // Check for null values and compare run-time types.
-        if (obj == null || GetType() != obj.GetType())
-            return false;
-
-        Utilizador p = (Utilizador)obj;
-        return (this.nome.Equals(p.getNome()) && (this.nick_Name.Equals(p.getNickName()))  && this.email.Equals(p.getEmail()) && this.palavra_Passe.Equals(p.getPassWord()));
-    }
-
+    
 
 
 }
