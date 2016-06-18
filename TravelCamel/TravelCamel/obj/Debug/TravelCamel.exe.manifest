@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="TravelCamel.exe" version="1.0.0.5" publicKeyToken="93976592863207b0" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="TravelCamel" version="1.0.0.0" publicKeyToken="051B4BDA38BE995E" language="neutral" processorArchitecture="msil" />
+    <commandLine file="TravelCamel.exe" parameters="" />
+    <hostInBrowser xmlns="urn:schemas-microsoft-com:asm.v3" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="Internet" Description="Default rights given to Internet applications" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.Core.dll" size="2443264">
+      <assemblyIdentity name="GMap.NET.Core" version="1.7.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ASq1+QCMsAtOn+9rQuNG/LasjJtfnLbjlKPkapAeS/U=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.WindowsPresentation.dll" size="57856">
+      <assemblyIdentity name="GMap.NET.WindowsPresentation" version="1.7.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>a/QB5sjKRLxom677nHNAzX6ZjFRCFdOErKocsi1rSmo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TravelCamel.exe" size="23488">
+      <assemblyIdentity name="TravelCamel" version="1.0.0.0" publicKeyToken="051B4BDA38BE995E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>eO3eutWeNRdkIGowMJaewWBlS0QNsxyWDWDyeiUglmM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=DESKTOP-LOBP4QS\Pedro" issuerKeyHash="8c0c8d6e7724180000d415199a48dbc4e9add139" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>94AAdhAZ422o+Aoyr5QelGJp/IY=</DigestValue></Reference></SignedInfo><SignatureValue>GwBo42i6jqlnSTIxEBJLv2Nf4DZqXwVeN6KA9xbJ9SYc+eckfEexCYG7HVdiM+jZ+CmH1F3myIW6bFnQX2LCHxaE18dWCiWO8vCBsiKXaM6CgShTP1K74ntyFIMmkhquv3G515KvfNBg3dvqh5628g+Qlen2Gy7fl76nW1rvtfE=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pkaIhPJvzM2dCG+doCsdG+iDCZFezUQIr/YL3DeQv1anWLawC5I7fuqx2CcmpE2y2B8eiBHkEbTRyLb/bKeck66qHxB2vfGT5mztlA+8QYj2MrqLRDl/wTPKZ4CLS8OD8uJNak6JCZxjGf1NIC8yyEpt51P00ruPxPzHqzxHHOU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="86fc6962941e94af320af8a86de31910760080f7" Description="" Url=""><as:assemblyIdentity name="TravelCamel.exe" version="1.0.0.5" publicKeyToken="93976592863207b0" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-LOBP4QS\Pedro</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>Ri+ZSGYoinO0XLILEhk7E4qPyr0=</DigestValue></Reference></SignedInfo><SignatureValue>Ow/2m4cfjj6DmnwzP7cTmVt8LUDZUxyuxny+FqZGkGdJ0kPZT8Di1rcF3xp/N7IYGQZ/DDbwdCPn7VufFFzyJyGaYvaEVrU24ci66dzAHbyow7omx/0HNsXjlZWCBv/RfZX+0qGZirZMYSppOeSr3y6DVpoAoY/Jwd1fiua9Bxw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pkaIhPJvzM2dCG+doCsdG+iDCZFezUQIr/YL3DeQv1anWLawC5I7fuqx2CcmpE2y2B8eiBHkEbTRyLb/bKeck66qHxB2vfGT5mztlA+8QYj2MrqLRDl/wTPKZ4CLS8OD8uJNak6JCZxjGf1NIC8yyEpt51P00ruPxPzHqzxHHOU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQGx71rpQO4p1GDdmgAGjR/TANBgkqhkiG9w0BAQUFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEwATwBCAFAANABRAFMAXABQAGUAZAByAG8wHhcNMTYwNjE2MTc1MzIyWhcNMTcwNjE2MjM1MzIyWjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEwATwBCAFAANABRAFMAXABQAGUAZAByAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKZGiITyb8zNnQhvnaArHRvogwmRXs1ECK/2C9w3kL9Wp1i2sAuSO37qsdgnJqRNstgfHogR5BG00ci2/2ynnJOuqh8Qdr3xk+Zs7ZQPvEGI9jK6i0Q5f8EzymeAi0vDg/LiTWpOiQmcYxn9TSAvMshKbedT9NK7j8T8x6s8RxzlAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAoVFW1KHPkKWcx4ellYhUSp5LYUhcFiSE0NIfuS637QJ0NLC65mihEMAAe6FHnfIsy/udZdhJSrlWu8VSNS96JO73iXI09NTYbGV6NoaNVhueGqKEChUbcgFPicMmYPGDMWjdhEnI47uZY+e0S5gcLTVa4SZBS5HXZGzZTkipHaA=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

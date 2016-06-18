@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="TravelCamel.exe" version="1.0.0.3" publicKeyToken="93976592863207b0" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="TravelCamel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="TravelCamel.exe" parameters="" />
+    <hostInBrowser xmlns="urn:schemas-microsoft-com:asm.v3" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="Internet" Description="Default rights given to Internet applications" ID="Custom" SameSite="site">
+          <IPermission version="1" class="System.Security.Permissions.FileDialogPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Access="Open" />
+          <IPermission UserQuota="1024000" version="1" class="System.Security.Permissions.IsolatedStorageFilePermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Allowed="ApplicationIsolationByUser" />
+          <IPermission version="1" class="System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Flags="Execution" />
+          <IPermission version="1" class="System.Security.Permissions.UIPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Clipboard="OwnClipboard" Window="SafeTopLevelWindows" />
+          <IPermission version="1" class="System.Drawing.Printing.PrintingPermission, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Level="SafePrinting" />
+          <IPermission version="1" class="System.Security.Permissions.MediaPermission, WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Audio="SafeAudio" Image="SafeImage" Video="SafeVideo" />
+          <IPermission version="1" class="System.Security.Permissions.WebBrowserPermission, WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Level="Safe" />
+        </PermissionSet>
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.Core.dll" size="2443264">
+      <assemblyIdentity name="GMap.NET.Core" version="1.7.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ASq1+QCMsAtOn+9rQuNG/LasjJtfnLbjlKPkapAeS/U=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.WindowsPresentation.dll" size="57856">
+      <assemblyIdentity name="GMap.NET.WindowsPresentation" version="1.7.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>a/QB5sjKRLxom677nHNAzX6ZjFRCFdOErKocsi1rSmo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TravelCamel.exe" size="10688">
+      <assemblyIdentity name="TravelCamel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>chDViXqx+37SpFb5oy0bXjTWhwS6hX4dRScWYNKu8BQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=DESKTOP-LOBP4QS\Pedro" issuerKeyHash="8c0c8d6e7724180000d415199a48dbc4e9add139" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>t5xTM5/PvrBhQbDzSbAkc524UDg=</DigestValue></Reference></SignedInfo><SignatureValue>UR92YN/jXbbI7Zg8wv4v9nS+RSekYpGnzg/PwXrigqyx6ZRd4A9w1fbhuMkcdwMOun8sQfrmek6qmejxk5uXTvPYEzApZvB9t1C3GVJVKFlMkJfgE9MCOQy2uUPFKZUgM51LUOcqQoIph8P/UL20YWYLJkSbUIjMz/RwDF8zoHU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pkaIhPJvzM2dCG+doCsdG+iDCZFezUQIr/YL3DeQv1anWLawC5I7fuqx2CcmpE2y2B8eiBHkEbTRyLb/bKeck66qHxB2vfGT5mztlA+8QYj2MrqLRDl/wTPKZ4CLS8OD8uJNak6JCZxjGf1NIC8yyEpt51P00ruPxPzHqzxHHOU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="3850b89d7324b049f3b04161b0becf9f33539cb7" Description="" Url=""><as:assemblyIdentity name="TravelCamel.exe" version="1.0.0.3" publicKeyToken="93976592863207b0" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-LOBP4QS\Pedro</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>hdwHYYEeXjNrr3MJTt/ucSmlbfM=</DigestValue></Reference></SignedInfo><SignatureValue>kPVRwV3NSAvuLRyuvXG8J1BTqpPtwVloW0U1eM5oeWgKsXZjxVlijLZhvQ32UUZ6P2fr0K78//Ar9Uj0AMd4Sgiud4wgD6Z64DiNtFHU4165FuxMQSrIrSIGLpUD/LO1NVytcN2RicyXAwpOgDDroniDJI2gn4ek12neRPXupm0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pkaIhPJvzM2dCG+doCsdG+iDCZFezUQIr/YL3DeQv1anWLawC5I7fuqx2CcmpE2y2B8eiBHkEbTRyLb/bKeck66qHxB2vfGT5mztlA+8QYj2MrqLRDl/wTPKZ4CLS8OD8uJNak6JCZxjGf1NIC8yyEpt51P00ruPxPzHqzxHHOU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQGx71rpQO4p1GDdmgAGjR/TANBgkqhkiG9w0BAQUFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEwATwBCAFAANABRAFMAXABQAGUAZAByAG8wHhcNMTYwNjE2MTc1MzIyWhcNMTcwNjE2MjM1MzIyWjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEwATwBCAFAANABRAFMAXABQAGUAZAByAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKZGiITyb8zNnQhvnaArHRvogwmRXs1ECK/2C9w3kL9Wp1i2sAuSO37qsdgnJqRNstgfHogR5BG00ci2/2ynnJOuqh8Qdr3xk+Zs7ZQPvEGI9jK6i0Q5f8EzymeAi0vDg/LiTWpOiQmcYxn9TSAvMshKbedT9NK7j8T8x6s8RxzlAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAoVFW1KHPkKWcx4ellYhUSp5LYUhcFiSE0NIfuS637QJ0NLC65mihEMAAe6FHnfIsy/udZdhJSrlWu8VSNS96JO73iXI09NTYbGV6NoaNVhueGqKEChUbcgFPicMmYPGDMWjdhEnI47uZY+e0S5gcLTVa4SZBS5HXZGzZTkipHaA=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

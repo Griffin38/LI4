@@ -28,9 +28,16 @@
                 <TabItem Header="Inicio" Height="24" VerticalAlignment="Top" >
                    
                     <Grid Name="inic">
-   
 
-            <TextBlock HorizontalAlignment="Center"
+                    
+
+                            <TextBox Name="username" Width="90"  HorizontalAlignment="Left" VerticalAlignment="Center"  Text="Username" />
+                            <PasswordBox Name="password" Width="80"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="95,238,0,237.6"   />
+
+
+                       
+                        
+                    <TextBlock Name="openi" HorizontalAlignment="Center"
 	       Margin="125,65,123.2,227.4"
 	       TextWrapping="Wrap"
    	       Text="Bem vindo ao Travel Camel."
@@ -43,6 +50,7 @@
     		VerticalAlignment="Center"
     		Width="75"
     		Click="Button_Click" Height="25"/>
+
 
                     </Grid>
 
