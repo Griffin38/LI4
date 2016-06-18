@@ -78,7 +78,7 @@ namespace TravelCamel.dados
         public Boolean login(string Nome, string password)
         {
             Boolean log = false;
-            SqlCommand command = new SqlCommand("SELECT idUtilizador FROM Utilizador WHERE Nome = @0 and PassWord = @1" , connection);
+            SqlCommand command = new SqlCommand("SELECT idUtilizador FROM Utilizador WHERE NickName = @0 and PassWord = @1", connection);
             // Add the parameters.
             command.Parameters.Add(new SqlParameter("@0",Nome));
             command.Parameters.Add(new SqlParameter("@1",password));
