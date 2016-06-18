@@ -93,7 +93,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MapControl.cs" />
+    <Compile Include="business\Cidade.cs" />
+    <Compile Include="business\Pais.cs" />
+    <Compile Include="business\PontosInteresse.cs" />
+    <Compile Include="business\Utilizador.cs" />
+    <Compile Include="business\Viagens.cs" />
+    <Compile Include="business\MapControl.cs" />
+    <Compile Include="dados\BD.cs" />
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -138,6 +144,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="interface\" />
   </ItemGroup>
   <PropertyGroup>
     <StartArguments />

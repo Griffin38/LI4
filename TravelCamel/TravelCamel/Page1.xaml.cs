@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelCamel.dados;
 
 namespace TravelCamel
 {
@@ -20,6 +22,7 @@ namespace TravelCamel
     /// </summary>
     public partial class Page1 : Page
     {
+        private BD con;
         public Page1()
         {
             InitializeComponent();
@@ -28,16 +31,25 @@ namespace TravelCamel
            this.Planear.Visibility = Visibility.Hidden;
            this.Viagens.Visibility = Visibility.Hidden;
            MapLoad();
+            con = new BD();
        }
       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Title = "Grifin e o Rei";
-       
-             this.comecar.Visibility = Visibility.Visible;
-            this.Planear.Visibility = Visibility.Visible;
-            this.Viagens.Visibility = Visibility.Visible;
+
+            string a, b;
+            a = username.Text;
+            b = password.Password;
+
+            if (con.login(a, b))
+            {
+
+                this.comecar.Visibility = Visibility.Visible;
+                this.Planear.Visibility = Visibility.Visible;
+                this.Viagens.Visibility = Visibility.Visible;
+            }
+            else MessageBox.Show("Dados de Login Errados");
         }
 
         private void Button_ClickPonto(object sender, RoutedEventArgs e)
