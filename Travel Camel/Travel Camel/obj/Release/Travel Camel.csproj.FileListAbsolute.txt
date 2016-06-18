@@ -1,0 +1,19 @@
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\Travel Camel.exe.config
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\Travel Camel.exe
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\Travel Camel.pdb
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\GMap.NET.Core.dll
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\GMap.NET.WindowsPresentation.dll
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\GMap.NET.Core.xml
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\bin\Release\GMap.NET.WindowsPresentation.xml
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\MainWindow.g.cs
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\App.g.cs
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel_MarkupCompile.cache
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel_MarkupCompile.lref
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\MainWindow.baml
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel.g.resources
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel_Camel.Properties.Resources.resources
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel.csproj.GenerateResource.Cache
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel.exe
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel.pdb
+C:\Users\Pedro\Documents\GitHub\LI4\Travel Camel\Travel Camel\obj\Release\Travel Camel.csprojResolveAssemblyReference.cache
