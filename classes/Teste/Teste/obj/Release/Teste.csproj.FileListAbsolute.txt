@@ -1,0 +1,9 @@
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Release\Teste.exe.config
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Release\Teste.exe
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Release\Teste.pdb
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.Form1.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.FromFornecedores.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.Properties.Resources.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.csproj.GenerateResource.Cache
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.exe
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Release\Teste.pdb

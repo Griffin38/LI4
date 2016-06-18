@@ -1,7 +1,7 @@
 USE [LI4Movel]
 GO
 
-/****** Object:  Table [dbo].[Ponto_Interesse]    Script Date: 16/06/2016 22:53:17 ******/
+/****** Object:  Table [dbo].[Ponto_Interesse]    Script Date: 18/06/2016 19:15:10 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,6 @@ CREATE TABLE [dbo].[Ponto_Interesse](
 	[Nome] [nchar](75) NOT NULL,
 	[Mapa] [nchar](75) NOT NULL,
 	[idPontoWeb] [int] NOT NULL,
-	[Avaliacao] [int] NULL,
 	[IDViagem] [int] IDENTITY(1,1) NOT NULL,
  CONSTRAINT [PK_Ponto_Interesse] PRIMARY KEY CLUSTERED 
 (

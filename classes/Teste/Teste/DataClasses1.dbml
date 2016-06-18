@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LI4" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=Ultimate\SQLEXPRESS;Initial Catalog=LI4;Integrated Security=True" SettingsObjectName="Teste.Properties.Settings" SettingsPropertyName="LI4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Avaliacao" Member="Avaliacaos">
+    <Type Name="Avaliacao">
+      <Column Name="IDAvaliacao" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDUtilizador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDPontoInteresse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Avaliacao" Member="Avaliacao1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pontos_Interesse_Avaliacao" Member="Pontos_Interesse" ThisKey="IDPontoInteresse" OtherKey="idPonto" Type="Pontos_Interesse" IsForeignKey="true" />
+      <Association Name="Utilizador_Avaliacao" Member="Utilizador" ThisKey="IDUtilizador" OtherKey="IdUtilizador" Type="Utilizador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cidade" Member="Cidades">
+    <Type Name="Cidade">
+      <Column Name="idCidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="idPais" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Cidade_Pontos_Interesse" Member="Pontos_Interesses" ThisKey="idCidade" OtherKey="idCidade" Type="Pontos_Interesse" />
+      <Association Name="Pai_Cidade" Member="Pai" ThisKey="idPais" OtherKey="IdPais" Type="Pai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pontos_Interesse" Member="Pontos_Interesses">
+    <Type Name="Pontos_Interesse">
+      <Column Name="idPonto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="Classificacao" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mapa" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="idCidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrPessoasVisitaram" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="longitude" Type="System.Decimal" DbType="Decimal(10,5) NOT NULL" CanBeNull="false" />
+      <Column Name="latitude" Type="System.Decimal" DbType="Decimal(10,5) NOT NULL" CanBeNull="false" />
+      <Association Name="Pontos_Interesse_Avaliacao" Member="Avaliacaos" ThisKey="idPonto" OtherKey="IDPontoInteresse" Type="Avaliacao" />
+      <Association Name="Pontos_Interesse_PontosVisitado" Member="PontosVisitados" ThisKey="idPonto" OtherKey="idPonto" Type="PontosVisitado" />
+      <Association Name="Pontos_Interesse_PontosGuardado" Member="PontosGuardados" ThisKey="idPonto" OtherKey="IDPontoInteresse" Type="PontosGuardado" />
+      <Association Name="Cidade_Pontos_Interesse" Member="Cidade" ThisKey="idCidade" OtherKey="idCidade" Type="Cidade" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PontosVisitados" Member="PontosVisitados">
+    <Type Name="PontosVisitado">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataObservacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TipoInfor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="idViagem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPonto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pontos_Interesse_PontosVisitado" Member="Pontos_Interesse" ThisKey="idPonto" OtherKey="idPonto" Type="Pontos_Interesse" IsForeignKey="true" />
+      <Association Name="Viagem_PontosVisitado" Member="Viagem" ThisKey="idViagem" OtherKey="IdViagem" Type="Viagem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Viagem" Member="Viagems">
+    <Type Name="Viagem">
+      <Column Name="IdViagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataFim" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idUtilizador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Viagem_PontosVisitado" Member="PontosVisitados" ThisKey="IdViagem" OtherKey="idViagem" Type="PontosVisitado" />
+      <Association Name="Utilizador_Viagem" Member="Utilizador" ThisKey="idUtilizador" OtherKey="IdUtilizador" Type="Utilizador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Utilizador" Member="Utilizadors">
+    <Type Name="Utilizador">
+      <Column Name="IdUtilizador" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="NickName" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="idPais" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Utilizador_Avaliacao" Member="Avaliacaos" ThisKey="IdUtilizador" OtherKey="IDUtilizador" Type="Avaliacao" />
+      <Association Name="Utilizador_Viagem" Member="Viagems" ThisKey="IdUtilizador" OtherKey="idUtilizador" Type="Viagem" />
+      <Association Name="Utilizador_PontosGuardado" Member="PontosGuardados" ThisKey="IdUtilizador" OtherKey="IDUtilizador" Type="PontosGuardado" />
+      <Association Name="Pai_Utilizador" Member="Pai" ThisKey="idPais" OtherKey="IdPais" Type="Pai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PontosGuardados" Member="PontosGuardados">
+    <Type Name="PontosGuardado">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDPontoInteresse" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDUtilizador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pontos_Interesse_PontosGuardado" Member="Pontos_Interesse" ThisKey="IDPontoInteresse" OtherKey="idPonto" Type="Pontos_Interesse" IsForeignKey="true" />
+      <Association Name="Utilizador_PontosGuardado" Member="Utilizador" ThisKey="IDUtilizador" OtherKey="IdUtilizador" Type="Utilizador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pais" Member="Pais">
+    <Type Name="Pai">
+      <Column Name="IdPais" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Association Name="Pai_Cidade" Member="Cidades" ThisKey="IdPais" OtherKey="idPais" Type="Cidade" />
+      <Association Name="Pai_Utilizador" Member="Utilizadors" ThisKey="IdPais" OtherKey="idPais" Type="Utilizador" />
+    </Type>
+  </Table>
+</Database>

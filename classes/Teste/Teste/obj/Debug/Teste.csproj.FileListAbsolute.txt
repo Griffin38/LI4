@@ -1,0 +1,10 @@
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Debug\Teste.exe.config
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.csprojResolveAssemblyReference.cache
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.Form1.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.Properties.Resources.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.csproj.GenerateResource.Cache
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Debug\Teste.exe
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\bin\Debug\Teste.pdb
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.FromFornecedores.resources
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.exe
+C:\Users\gil\Documents\Visual Studio 2015\Projects\guiões\Teste\Teste\obj\Debug\Teste.pdb

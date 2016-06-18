@@ -1,7 +1,7 @@
 USE [LI4]
 GO
 
-/****** Object:  Table [dbo].[Pontos_Interesse]    Script Date: 17/06/2016 01:35:14 ******/
+/****** Object:  Table [dbo].[Pontos_Interesse]    Script Date: 18/06/2016 19:20:11 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,10 +14,8 @@ GO
 CREATE TABLE [dbo].[Pontos_Interesse](
 	[idPonto] [int] IDENTITY(1,1) NOT NULL,
 	[Nome] [varchar](75) NOT NULL,
-	[Classificacao] [int] NOT NULL,
 	[Mapa] [varchar](max) NOT NULL,
 	[idCidade] [int] NOT NULL,
-	[nrPessoasVisitaram] [int] NOT NULL,
 	[longitude] [decimal](10, 5) NOT NULL,
 	[latitude] [decimal](10, 5) NOT NULL,
  CONSTRAINT [PK_Pontos_Interesse] PRIMARY KEY CLUSTERED 

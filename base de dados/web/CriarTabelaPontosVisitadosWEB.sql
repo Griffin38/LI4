@@ -1,7 +1,7 @@
 USE [LI4]
 GO
 
-/****** Object:  Table [dbo].[PontosVisitados]    Script Date: 16/06/2016 22:51:23 ******/
+/****** Object:  Table [dbo].[PontosVisitados]    Script Date: 18/06/2016 19:20:35 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,7 +14,7 @@ GO
 CREATE TABLE [dbo].[PontosVisitados](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[DataObservacao] [date] NULL,
-	[TipoInfor] [int] NOT NULL,
+	[TipoInfor] [int] NULL,
 	[Comentario] [varchar](75) NULL,
 	[Url] [varchar](75) NULL,
 	[idViagem] [int] NOT NULL,
