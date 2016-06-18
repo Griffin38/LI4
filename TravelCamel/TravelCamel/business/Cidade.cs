@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+namespace TravelCamel.business { 
 public class Cidade
 {
     public string Nome { get; set; }
@@ -9,10 +10,10 @@ public class Cidade
 
 
     public Cidade()
-	{
+    {
         Nome = "unknown";
         Pontos = new HashSet<PontosInteresse>();
-	}
+    }
     public Cidade(string Nom, HashSet<PontosInteresse> Po)
     {
         Nome = Nom;
@@ -21,7 +22,8 @@ public class Cidade
         {
             object item = enumerator.Current;
             Pontos.Add((PontosInteresse)item);
-            
+
         }
     }
+}
 }

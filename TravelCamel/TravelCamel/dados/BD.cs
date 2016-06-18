@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows;
+using TravelCamel.business;
 
 namespace TravelCamel.dados
 {
@@ -97,7 +98,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Nao ha utilizador, " + er.Message);
+                MessageBox.Show("Dados Incorrectos, " + er.Message);
 
             }
 
