@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using GMap.NET.WindowsPresentation;
 using GMap.NET;
+using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace Travel_CamelMap
 {
@@ -12,8 +14,15 @@ namespace Travel_CamelMap
     {
         public void addMarker(float lat, float longi)
         {
-
+             
             GMapMarker marker = new GMapMarker(new PointLatLng(lat, longi));
+            marker.Shape = new Ellipse
+            { Fill = Brushes.Yellow,
+            Width = 10,
+                Height = 20,
+                Stroke = Brushes.Red,
+                StrokeThickness = 1.5
+            };
             this.Markers.Add(marker);
 
 

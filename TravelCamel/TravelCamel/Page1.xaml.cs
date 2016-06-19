@@ -67,15 +67,7 @@ namespace TravelCamel
                 PontosInteresse p = (PontosInteresse)item;
                 if (p.Nome.Equals(ListaC.SelectedItem))
                 {
-                    GMapMarker marker = new GMapMarker(new PointLatLng(p.lati, p.longi));
-                    marker.Shape = new Ellipse
-                    {
-                        Width = 10,
-                        Height = 20,
-                        Stroke = Brushes.Red,
-                        StrokeThickness = 1.5
-                    };
-                    mapControl2.Markers.Add(marker);
+                    mapControl2.addMarker( p.longi, p.lati);
 
                    
 
