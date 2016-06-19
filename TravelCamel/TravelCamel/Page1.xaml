@@ -114,7 +114,7 @@
 
                         <TextBox Grid.Column="0" Grid.Row="0" Name="cidadeS" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top"  Text="Cidade"/>
 
-                        <Button Grid.Column="1" Grid.Row="0" Content="Pesquisar"
+                        <Button Grid.Column="0" Grid.Row="0" Content="Pesquisar"
     		HorizontalAlignment="Right"
     		VerticalAlignment="Top"
     		
@@ -122,8 +122,8 @@
 
 
 
-                        <ListBox Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"   >
-                         <ListBoxItem>Pontos de Interesse</ListBoxItem>
+                    <ListBox Name="ListaC" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"   SelectionChanged="ListC_SelectionChanged" >
+                       
 
                         </ListBox>
 

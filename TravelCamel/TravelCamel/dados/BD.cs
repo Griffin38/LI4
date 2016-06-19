@@ -26,14 +26,15 @@ namespace TravelCamel.dados
                 MessageBox.Show("Ligação nao foi feita, " + er.Message);}
             }
 
-    public HashSet<PontosInteresse> getPontos(string cidade)
+        public Cidade getCidade(string cidade)
         {
+            Cidade b = new Cidade();
             int cidID = 0;
             HashSet<PontosInteresse> ret = new HashSet<PontosInteresse>();
             // Create the command
-            SqlCommand command = new SqlCommand("SELECT id FROM Cidade WHERE Nome = @first", connection);
+            SqlCommand command = new SqlCommand("SELECT idCidade FROM dbo.Cidade WHERE Nome = @0", connection);
             // Add the parameters.
-            command.Parameters.Add(new SqlParameter(cidade, 0));
+            command.Parameters.Add(new SqlParameter("@0", cidade));
             try
             {
                 // Create new SqlDataReader object and read data from the command.
@@ -47,17 +48,23 @@ namespace TravelCamel.dados
 
                     }
                 }
+                if (cidID != 0) {  HashSet<PontosInteresse> au= getPontos(cidID);  b = new Cidade(cidade,au); }
             }
             catch (SqlException er)
             {
                 MessageBox.Show("There was an error reported by SQL Server, " + er.Message);
             }
-                if (cidID != 0)
-                {
+          
+
+            return b;
+        }
+    public HashSet<PontosInteresse> getPontos(int cidID)
+        {
+            HashSet<PontosInteresse> ret = new HashSet<PontosInteresse>();
                     // Create the command
-                    SqlCommand command2 = new SqlCommand("SELECT * FROM Ponto_Interesse WHERE Cidade_idCidade = @first", connection);
+                    SqlCommand command2 = new SqlCommand("SELECT * FROM dbo.Pontos_Interesse WHERE idCidade = @0", connection);
                     // Add the parameters.
-                    command2.Parameters.Add(new SqlParameter(cidID.ToString(), 0));
+                    command2.Parameters.Add(new SqlParameter("@0",cidID.ToString()));
 
                     // Create new SqlDataReader object and read data from the command.
                     using (SqlDataReader reader2 = command2.ExecuteReader())
@@ -65,11 +72,14 @@ namespace TravelCamel.dados
                         // while there is another record present
                         while (reader2.Read())
                         {
-                            PontosInteresse a = new PontosInteresse(float.Parse((string)reader2[5]), float.Parse((string)reader2[4]), (string)reader2[1], (string)reader2[2], (string)reader2[2]);
+                    decimal val6 =(decimal) reader2[6],val5 =(decimal) reader2[5];
+                   
+                    float la = (float)val6, lo = (float)val5;
+                            PontosInteresse a = new PontosInteresse(la, lo, (string)reader2[1], (string)reader2[2], (string)reader2[4]);
                             ret.Add(a);
+                   
 
-                        }
-                    }
+                }
                 }
 
             return ret;

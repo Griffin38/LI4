@@ -7,8 +7,8 @@ namespace TravelCamel.business
         // Class members:
         // Property.
 
-        private float lati { get; set; }
-        private float longi { get; set; }
+        public float lati { get; set; }
+        public float longi { get; set; }
         public string Nome { get; set; }
 
         public string Mapa { get; set; }

@@ -14,6 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelCamel.dados;
+using TravelCamel.business;
+using System.Collections;
+using GMap.NET.WindowsPresentation;
+using GMap.NET;
 
 namespace TravelCamel
 {
@@ -23,6 +27,7 @@ namespace TravelCamel
     public partial class Page1 : Page
     {
         private BD con;
+        private Cidade cc;
         public Page1()
         {
             InitializeComponent();
@@ -54,6 +59,32 @@ namespace TravelCamel
 
         private void Button_ClickPonto(object sender, RoutedEventArgs e)
         {
+            Boolean f = true;
+            IEnumerator enumerator = cc.Pontos.GetEnumerator();
+            while (enumerator.MoveNext() && f)
+            {
+                object item = enumerator.Current;
+                PontosInteresse p = (PontosInteresse)item;
+                if (p.Nome.Equals(ListaC.SelectedItem))
+                {
+                    GMapMarker marker = new GMapMarker(new PointLatLng(p.lati, p.longi));
+                    marker.Shape = new Ellipse
+                    {
+                        Width = 10,
+                        Height = 20,
+                        Stroke = Brushes.Red,
+                        StrokeThickness = 1.5
+                    };
+                    mapControl2.Markers.Add(marker);
+
+                   
+
+
+                f = false;
+                }
+
+            }
+
         }
         private void Button_ClickFim(object sender, RoutedEventArgs e)
         {
@@ -61,11 +92,14 @@ namespace TravelCamel
 
         private void Button_ClickSearch(object sender, RoutedEventArgs e)
         {
+            ListaC.Items.Clear();
+            string cidad = cidadeS.Text;
+             cc = con.getCidade(cidad);
+          foreach(PontosInteresse p in cc.Pontos){
+                ListaC.Items.Add(p.Nome);
 
-            string cidade = cidadeS.Text;
-
-            Desc.Text = cidade + Environment.NewLine + "è Lindo";
-            mapControl2.SetPositionByKeywords(cidade);
+            }
+            mapControl2.SetPositionByKeywords(cidad);
 
             //markers 
 
@@ -85,6 +119,26 @@ namespace TravelCamel
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        
+  private void ListC_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Boolean f = true;
+            IEnumerator enumerator = cc.Pontos.GetEnumerator();
+            while (enumerator.MoveNext()&& f)
+            {
+                object item = enumerator.Current;
+                PontosInteresse p = (PontosInteresse)item;
+                if(p.Nome.Equals(ListaC.SelectedItem))
+                {
+                    Desc.Text = p.desc;
+                    f = false;
+                }
+
+            }
+           
 
         }
     }
