@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
+namespace TravelCamel.business { 
 public class Pais
 {
     public string Nome { get; set; }
@@ -24,4 +24,5 @@ public class Pais
 
         }
     }
+}
 }
