@@ -12,17 +12,10 @@ namespace Travel_CamelMap
 {
     class MapControl : GMapControl
     {
-        public void addMarker(float lat, float longi)
+        public void addMarker(GMapMarker marker)
         {
              
-            GMapMarker marker = new GMapMarker(new PointLatLng(lat, longi));
-            marker.Shape = new Ellipse
-            { Fill = Brushes.Yellow,
-            Width = 10,
-                Height = 20,
-                Stroke = Brushes.Red,
-                StrokeThickness = 1.5
-            };
+          
             this.Markers.Add(marker);
 
 

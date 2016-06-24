@@ -8,8 +8,8 @@ namespace TravelCamel.business
         public string Nick { get; set; }
         public string Email { get; set; }
         public string Pais { get; set; }
-        IDictionary<string, Viagens> realizadas;
-        IDictionary<string, Viagens> planeadas;
+       public  IDictionary<string, Viagens> realizadas;
+        public IDictionary<string, Viagens> planeadas;
 
         //
         public Utilizador()
@@ -26,8 +26,8 @@ namespace TravelCamel.business
             Nick = ni;
             Email = em;
             Pais = pa;
-
-
+            realizadas = new Dictionary<string, Viagens>();
+            planeadas = new Dictionary<string, Viagens>();
             foreach (KeyValuePair<string, Viagens> kvp in re)
             {
                 realizadas.Add(kvp.Key, kvp.Value);

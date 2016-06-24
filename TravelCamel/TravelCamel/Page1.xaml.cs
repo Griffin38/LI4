@@ -28,6 +28,10 @@ namespace TravelCamel
     {
         private BD con;
         private Cidade cc;
+       private Utilizador uu;
+        private IDictionary<string, GMapMarker>  mapM1;
+        private IDictionary<string, GMapMarker> mapM2;
+        private IDictionary<string, GMapMarker> mapM3;
         public Page1()
         {
             InitializeComponent();
@@ -37,8 +41,14 @@ namespace TravelCamel
            this.Viagens.Visibility = Visibility.Hidden;
            MapLoad();
             con = new BD();
+            
        }
-      
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+
+           
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,13 +59,99 @@ namespace TravelCamel
 
             if (con.login(a, b))
             {
-
+                uu = con.loggedIN(a);
+               
+                preencheListas();
                 this.comecar.Visibility = Visibility.Visible;
                 this.Planear.Visibility = Visibility.Visible;
                 this.Viagens.Visibility = Visibility.Visible;
+                username.Visibility = Visibility.Hidden;
+                password.Visibility = Visibility.Hidden;
+                loginb.Visibility = Visibility.Hidden;
+                logoutb.Visibility = Visibility.Visible;
             }
             else MessageBox.Show("Dados de Login Errados");
         }
+
+        private void setMap(Viagens v)
+        {
+            int i = 0; MessageBox.Show("setmap:"+ v.Nome);
+            foreach (PontosInteresse p in v.Pontos){
+                MessageBox.Show("Dados de Login Certos");
+                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
+                GMapMarker marker = new GMapMarker(new PointLatLng(p.lati,p.longi));
+                marker.Shape = new Ellipse
+                {
+                    Width = 10,
+                    Height = 10,
+                    Stroke = Brushes.Black,
+                    StrokeThickness = 1.5
+                };
+                mapM1.Add(p.Nome, marker);
+                mapControl.addMarker(marker);
+
+
+
+            }
+
+        }
+
+
+
+        private void setMap3(Viagens v)
+        {
+
+            int i = 0;
+            foreach (PontosInteresse p in v.Pontos)
+            {
+                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++; }
+                GMapMarker marker = new GMapMarker(new PointLatLng(p.longi, p.lati));
+                marker.Shape = new Ellipse
+                {
+                    Width = 10,
+                    Height = 10,
+                    Stroke = Brushes.Black,
+                    StrokeThickness = 1.5
+                };
+                mapM3.Add(p.Nome, marker);
+                mapControl3.addMarker(marker);
+               
+
+
+            }
+
+
+
+        }
+        private void preencheListas()
+        {
+            int i = 0;
+            foreach (KeyValuePair<string, Viagens> kvp in uu.realizadas)
+            {
+                ListaCompletas.Items.Add(kvp.Key);
+                if(i==0)
+                {
+                    setMap(kvp.Value);
+                    i++;
+                }
+
+            }
+            i = 0;
+            foreach (KeyValuePair<string, Viagens> kvp in uu.planeadas)
+            {
+                ListaPlaneadas.Items.Add(kvp.Key);
+                if (i == 0)
+                {
+                    setMap3(kvp.Value);
+                    i++;
+                }
+
+            }
+
+
+
+        }
+
 
         private void Button_ClickPonto(object sender, RoutedEventArgs e)
         {
@@ -67,7 +163,9 @@ namespace TravelCamel
                 PontosInteresse p = (PontosInteresse)item;
                 if (p.Nome.Equals(ListaC.SelectedItem))
                 {
-                    mapControl2.addMarker( p.longi, p.lati);
+                    GMapMarker marker = new GMapMarker(new PointLatLng(p.longi,p.lati));
+                    mapM2.Add(ListaC.SelectedItem.ToString(), marker);
+                    mapControl2.addMarker(marker);
 
                    
 
@@ -107,9 +205,12 @@ namespace TravelCamel
             mapControl.Zoom = 15;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             mapControl.SetPositionByKeywords("Braga, Portugal");
+            this.mapM1 = new Dictionary<string, GMapMarker>();
+            this.mapM2 = new Dictionary<string, GMapMarker>();
+            this.mapM3 = new Dictionary<string, GMapMarker>();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListBox_SelectionChangedComp(object sender, SelectionChangedEventArgs e)
         {
 
         }
