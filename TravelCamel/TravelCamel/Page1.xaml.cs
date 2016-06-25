@@ -186,17 +186,46 @@ namespace TravelCamel
 
 
         private void Button_ClickM1(object sender, RoutedEventArgs e)
-        { Shape a = (Shape)sender;
-            //notas / fotos 
-            MessageBox.Show( a.Uid);
+        {
+            Boolean br = false;
+            Shape a = (Shape)sender;
+            //pontos 
+            foreach (KeyValuePair<string, Viagens> kvp in uu.realizadas)
+            {
+                foreach (PontosInteresse b in kvp.Value.Pontos)
+                {
+                    if (b.Nome.Equals(a.Uid))
+                    {
+                        Notas.Text = b.desc;//falta o vai buscar cenas 
+                        br = true;
+                        break;
+                    }
+
+                }
+                if (br) break;
+            }
         }
         private void Button_ClickM3(object sender, RoutedEventArgs e)
         {
+            Boolean br = false;
             Shape a = (Shape)sender;
             //pontos desc
+            foreach (KeyValuePair<string, Viagens> kvp in uu.planeadas)
+            {
+             foreach( PontosInteresse b in kvp.Value.Pontos)
+                {
+                    if (b.Nome.Equals(a.Uid))
+                    {
+                        desc2.Text = b.desc;
+                        br = true;
+                        break;
+                    }
+
+                }
+                if (br) break;
+            }
+
             
-           
-            MessageBox.Show(a.Uid);
         }
 
         //Listas ------------------------------------------------------------------------------------------
@@ -278,7 +307,7 @@ namespace TravelCamel
                 mapM1.Add(p.Nome, marker);
                 mapControl.addMarker(marker);
                     
-                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
+                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++;}
 
             }
 
@@ -309,7 +338,7 @@ namespace TravelCamel
                 mapM3.Add(p.Nome, marker);
                 mapControl3.addMarker(marker);
 
-                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++; desc2.Text = p.Mapa; }
+                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++;}
 
             }
 

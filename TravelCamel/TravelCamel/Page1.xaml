@@ -38,8 +38,8 @@
 
 
 
-                    <TextBox Grid.Column="0" Grid.Row="1" Name="username" Width="90" Height="23" Grid.ColumnSpan="2" Margin="81,0,362.6,66.6"   />
-                    <PasswordBox Grid.Column="0" Grid.Row="1" Height="23" Name="password" Width="90" Grid.ColumnSpan="2" Margin="81,25,362.6,41.6"   />
+                    <TextBox Grid.Column="0" Grid.Row="1" Name="username" Width="90" Height="23" Grid.ColumnSpan="2" Margin="81,0,362.6,66.6" Panel.ZIndex="1"   />
+                    <PasswordBox Grid.Column="0" Grid.Row="1" Height="23" Name="password" Width="90" Grid.ColumnSpan="2" Margin="81,25,362.6,41.6" Panel.ZIndex="1"   />
 
 
 
@@ -54,7 +54,7 @@
                     <Button Grid.Column="0" Grid.Row="1" Content="Login" Name="loginb"
     		
     		Width="75"
-    		Click="Button_Click" Height="25" Margin="86,53,372.6,11.6" Grid.ColumnSpan="2" />
+    		Click="Button_Click" Height="25" Margin="86,53,372.6,11.6" Grid.ColumnSpan="2" Panel.ZIndex="1" />
 
 
                     <Button Grid.Column="0" Grid.Row="1" Content="Logout" Name="logoutb"
@@ -78,11 +78,11 @@
                         <RowDefinition Height="90" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="90" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox  Name="ListaCompletas" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   SelectionChanged="ListBox_SelectionChangedComp"   >
+                    <ListBox  Name="ListaCompletas" Width="90" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   SelectionChanged="ListBox_SelectionChangedComp"   >
 
                     </ListBox>
 
@@ -90,13 +90,13 @@
 
                     <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"    />
 
-                    <TextBlock Grid.Column="0" Grid.Row="1" Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom"    Text="Fotos x     Notas Y "></TextBlock>
+                    <TextBlock Grid.Column="0" Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom"  TextWrapping="Wrap" Text="Fotos x     Notas Y " Margin="0,0,3.6,1.6" Height="85" Width="85" Grid.Row="1"/>
 
                     <Button Grid.Column="1" Grid.Row="1" Content="Ver Notas"
     		HorizontalAlignment="Right"
     		VerticalAlignment="Bottom"
     		Width="65"
-    		Click="Button_ClickSearch" Height="30" RenderTransformOrigin="-0.457,-0.21" />
+    		Click="Button_ClickSearch" Height="30" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,207.6,31.6" />
 
 
                 </Grid>
@@ -139,7 +139,7 @@
 
                     <src:MapControl Grid.Column="1" Grid.Row="1" x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3"   />
 
-                    <TextBox Grid.Column="0" Grid.Row="2" Name="Desc"      AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+                    <TextBox Grid.Column="0" Grid.Row="2" Name="Desc"  TextWrapping="Wrap"    AcceptsReturn="True"  IsReadOnly="True" Margin="6,0,0,6.6"/>
 
 
 
@@ -147,12 +147,12 @@
     		HorizontalAlignment="Right"
     		VerticalAlignment="Bottom"
     		Width="98"
-    		Click="Button_ClickPonto" Height="20" Margin="0,0,106,2"/>
+    		Click="Button_ClickPonto" Height="20" Margin="0,0,182.6,56.6"/>
                     <Button  Grid.Column="1" Grid.Row="2" Content="Completar"
     		HorizontalAlignment="Right"
     		VerticalAlignment="Bottom"
     		Width="65"
-    		Click="Button_ClickFim" Height="20" Margin="0,3,25,4"/>
+    		Click="Button_ClickFim" Height="20" Margin="0,0,199.6,26.6"/>
 
 
                 </Grid>
@@ -167,27 +167,27 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="100" />
+                        <RowDefinition Height="90" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="90" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Name="ListaPlaneadas" SelectionChanged="ListBox_SelectionChangedPlan" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   >
+                    <ListBox Name="ListaPlaneadas" SelectionChanged="ListBox_SelectionChangedPlan" Width="90" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   >
 
                     </ListBox>
 
 
                     <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl3" Zoom="25" MaxZoom="30" MinZoom="3"  />
 
-                    <TextBlock Grid.Column="0" Grid.Row="1" Name="desc2" HorizontalAlignment="Right" VerticalAlignment="Bottom"   Margin="0,0,0,35.4" Text="Descrição"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Name="desc2" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom"   Margin="0,0,3.6,6.6" Text="Descrição" Height="80" Width="80"></TextBlock>
 
                     <Button Grid.Column="1" Grid.Row="1" Content="Activar"
     		HorizontalAlignment="Right"
     	   VerticalAlignment="Bottom"
     		Width="65"
-    		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,83.2,15.4"/>
+    		Click="Button_ClickSearch" Height="20" RenderTransformOrigin="-0.457,-0.21" Margin="0,0,237.6,56.6"/>
 
                 </Grid>
 
