@@ -144,31 +144,25 @@ namespace TravelCamel.dados
 
         public PontosInteresse getPonto(int id)
         {
-            
+
             PontosInteresse ret = new PontosInteresse();
+            
             SqlCommand command1 = new SqlCommand("SELECT * FROM dbo.Pontos_Interesse where idPonto = @0", connection);
             command1.Parameters.Add(new SqlParameter("@0", id));
-      
-            try
+
+
+            using (SqlDataReader reader = command1.ExecuteReader())
             {
-                using (SqlDataReader reader = command1.ExecuteReader())
+                // while there is another record present
+                if (reader.Read())
                 {
-                    // while there is another record present
-                   if (reader.Read())
-                    {
-                        
-                        decimal val6 = (decimal)reader[6], val5 = (decimal)reader[5];
 
-                        float la = (float)val6, lo = (float)val5;
-                       ret = new PontosInteresse(la, lo, (string)reader[1], reader[2].ToString(), reader[4].ToString());
-                       
-                    }
+                    decimal val6 = (decimal)reader[6], val5 = (decimal)reader[5];
+
+                    float la = (float)val6, lo = (float)val5;
+                    ret = new PontosInteresse(la, lo, (string)reader[1], reader[2].ToString(), reader[4].ToString());
+
                 }
-            }
-            catch (SqlException er)
-            {
-                MessageBox.Show("Erro, " + er.Message);
-
             }
 
             return ret;
@@ -229,7 +223,7 @@ namespace TravelCamel.dados
             Viagens b = new Viagens();
       
             SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @0 and DataInicio > GETDATE()", connection);
-            SqlCommand command2 = new SqlCommand("SELECT * FROM dbo.Informacoes WHERE idViagem = @0 and DataObservacao IS NULL", connection);
+            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @0 and DataObservacao IS NULL", connection);
             command1.Parameters.Add(new SqlParameter("@0", userID));
             try
             {
