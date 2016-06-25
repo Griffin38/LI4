@@ -88,7 +88,7 @@
 
 
 
-                    <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"   />
+                    <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"    />
 
                     <TextBlock Grid.Column="0" Grid.Row="1" Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom"    Text="Fotos x     Notas Y "></TextBlock>
 

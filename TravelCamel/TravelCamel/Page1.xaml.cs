@@ -97,7 +97,7 @@ namespace TravelCamel
         }
 
 
-        //click ------------------------------
+        //click ------------------------------------------------------------------------------------------
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -141,6 +141,16 @@ namespace TravelCamel
                 {
 
                     GMapMarker marker = new GMapMarker(new PointLatLng(p.longi, p.lati));
+                    marker.Shape = new Ellipse
+                    {  
+                        Fill = Brushes.Yellow,
+                        Width = 10,
+                        Height = 20,
+                        Stroke = Brushes.Red,
+                        StrokeThickness = 1.5
+                       
+                    };
+                    marker.Shape.Uid = ListaC.SelectedItem.ToString();
                     mapControl2.addMarker(marker);
                     mapM2.Add(ListaC.SelectedItem.ToString(), marker);
 
@@ -175,7 +185,21 @@ namespace TravelCamel
         }
 
 
-        //Listas ------------------------------
+        private void Button_ClickM1(object sender, RoutedEventArgs e)
+        { Shape a = (Shape)sender;
+            //notas / fotos 
+            MessageBox.Show( a.Uid);
+        }
+        private void Button_ClickM3(object sender, RoutedEventArgs e)
+        {
+            Shape a = (Shape)sender;
+            //pontos desc
+            
+           
+            MessageBox.Show(a.Uid);
+        }
+
+        //Listas ------------------------------------------------------------------------------------------
 
 
 
@@ -228,20 +252,32 @@ namespace TravelCamel
 
         }
 
-        //Mapas ------------------------------
+        //Mapas ------------------------------------------------------------------------------------------
 
 
         private void setMap(Viagens v)
         {
             int i = 0; 
             foreach (PontosInteresse p in v.Pontos){
-              
+
                 
                 GMapMarker marker = new GMapMarker(new PointLatLng(p.longi,p.lati));
-              
+
+
+                marker.Shape = new Ellipse
+                {
+                    Fill = Brushes.Yellow,
+                    Width = 10,
+                    Height = 20,
+                    Stroke = Brushes.Red,
+                    StrokeThickness = 1.5
+                };
+                marker.Shape.MouseLeftButtonDown += Button_ClickM1;
+                marker.Shape.Uid = p.Nome;
+
                 mapM1.Add(p.Nome, marker);
                 mapControl.addMarker(marker);
-
+                    
                 if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
 
             }
@@ -258,8 +294,19 @@ namespace TravelCamel
             {
               
                 GMapMarker marker = new GMapMarker(new PointLatLng(p.longi, p.lati));
-               
-             mapM3.Add(p.Nome, marker);
+
+
+                marker.Shape = new Ellipse
+                {
+                    Fill = Brushes.Yellow,
+                    Width = 10,
+                    Height = 20,
+                    Stroke = Brushes.Red,
+                    StrokeThickness = 1.5
+                };
+                marker.Shape.MouseLeftButtonDown += Button_ClickM3;
+                marker.Shape.Uid = p.Nome;
+                mapM3.Add(p.Nome, marker);
                 mapControl3.addMarker(marker);
 
                 if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++; desc2.Text = p.Mapa; }
