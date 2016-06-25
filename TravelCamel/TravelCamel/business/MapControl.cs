@@ -26,6 +26,14 @@ namespace Travel_CamelMap
 
 
         }
+
+        public void delMarker(GMapMarker marker)
+        {
+
+            this.Markers.Remove(marker);
+
+
+        }
     }
 
    

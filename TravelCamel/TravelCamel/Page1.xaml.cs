@@ -171,7 +171,7 @@ namespace TravelCamel
             mapControl2.SetPositionByKeywords(cidad);
 
             //markers 
-
+            
         }
 
 
@@ -181,7 +181,16 @@ namespace TravelCamel
 
         private void ListBox_SelectionChangedComp(object sender, SelectionChangedEventArgs e)
         {
+            //reset map
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM1)
+            {
+                mapControl.delMarker(kvp.Value);
 
+            }
+            mapM1 = new Dictionary<string, GMapMarker>();
+            //new setMap
+
+            setMap(uu.realizadas[ListaCompletas.SelectedItem.ToString()]);
 
         }
 
@@ -204,7 +213,20 @@ namespace TravelCamel
 
 
         }
+        private void ListBox_SelectionChangedPlan(object sender, SelectionChangedEventArgs e)
+        {
+            //reset map
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM3)
+             {
+                mapControl3.delMarker(kvp.Value);
 
+            }
+            mapM3 = new Dictionary<string, GMapMarker>();
+            //new setMap
+
+            setMap3(uu.planeadas[ListaPlaneadas.SelectedItem.ToString()]);
+
+        }
 
         //Mapas ------------------------------
 
