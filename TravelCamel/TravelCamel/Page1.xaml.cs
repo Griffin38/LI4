@@ -75,22 +75,16 @@ namespace TravelCamel
 
         private void setMap(Viagens v)
         {
-            int i = 0; MessageBox.Show("setmap:"+ v.Nome);
+            int i = 0; 
             foreach (PontosInteresse p in v.Pontos){
-                MessageBox.Show("Dados de Login Certos");
-                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
-                GMapMarker marker = new GMapMarker(new PointLatLng(p.lati,p.longi));
-                marker.Shape = new Ellipse
-                {
-                    Width = 10,
-                    Height = 10,
-                    Stroke = Brushes.Black,
-                    StrokeThickness = 1.5
-                };
+              
+                
+                GMapMarker marker = new GMapMarker(new PointLatLng(p.longi,p.lati));
+              
                 mapM1.Add(p.Nome, marker);
                 mapControl.addMarker(marker);
 
-
+                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
 
             }
 
@@ -104,19 +98,13 @@ namespace TravelCamel
             int i = 0;
             foreach (PontosInteresse p in v.Pontos)
             {
-                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++; }
+              
                 GMapMarker marker = new GMapMarker(new PointLatLng(p.longi, p.lati));
-                marker.Shape = new Ellipse
-                {
-                    Width = 10,
-                    Height = 10,
-                    Stroke = Brushes.Black,
-                    StrokeThickness = 1.5
-                };
+              
                 mapM3.Add(p.Nome, marker);
                 mapControl3.addMarker(marker);
-               
 
+                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++;  }
 
             }
 
@@ -163,9 +151,11 @@ namespace TravelCamel
                 PontosInteresse p = (PontosInteresse)item;
                 if (p.Nome.Equals(ListaC.SelectedItem))
                 {
+               
                     GMapMarker marker = new GMapMarker(new PointLatLng(p.longi,p.lati));
-                    mapM2.Add(ListaC.SelectedItem.ToString(), marker);
                     mapControl2.addMarker(marker);
+                    mapM2.Add(ListaC.SelectedItem.ToString(), marker);
+                   
 
                    
 
