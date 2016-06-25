@@ -125,8 +125,33 @@ namespace TravelCamel
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-
-
+            this.comecar.Visibility = Visibility.Hidden;
+            this.Planear.Visibility = Visibility.Hidden;
+            this.Viagens.Visibility = Visibility.Hidden;
+            username.Visibility = Visibility.Visible;
+            password.Visibility = Visibility.Visible;
+            password.Password = "";
+            loginb.Visibility = Visibility.Visible;
+            logoutb.Visibility = Visibility.Hidden;
+            uu = new Utilizador();
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM1)
+            {
+                mapControl.delMarker(kvp.Value);
+            }
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM2)
+            {
+                mapControl2.delMarker(kvp.Value);
+            }
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM3)
+            {
+                mapControl3.delMarker(kvp.Value);
+            }
+            ListaCompletas.Items.Clear();
+            ListaPlaneadas.Items.Clear();
+            ListaC.Items.Clear();
+            this.mapM1 = new Dictionary<string, GMapMarker>();
+            this.mapM2 = new Dictionary<string, GMapMarker>();
+            this.mapM3 = new Dictionary<string, GMapMarker>();
         }
 
         private void Button_ClickPonto(object sender, RoutedEventArgs e)
@@ -166,6 +191,15 @@ namespace TravelCamel
         }
         private void Button_ClickFim(object sender, RoutedEventArgs e)
         {
+            HashSet<String> a = new HashSet<string>();
+            foreach (KeyValuePair<string, GMapMarker> kvp in mapM1)
+             {
+
+                a.Add(kvp.Key);
+            }
+            //popup perguntar nome e data de inicio
+            //     -   -    ok cancelar
+            //mandar para BD para criar nova viagem e adicionar os pontos (Nome,a,data)
         }
 
         private void Button_ClickSearch(object sender, RoutedEventArgs e)
@@ -180,23 +214,56 @@ namespace TravelCamel
             }
             mapControl2.SetPositionByKeywords(cidad);
 
-            //markers 
+            
             
         }
 
 
         private void Button_ClickM1(object sender, RoutedEventArgs e)
-        { Shape a = (Shape)sender;
-            //notas / fotos 
-            MessageBox.Show( a.Uid);
+        {
+            Boolean br = false;
+            Shape a = (Shape)sender;
+            //pontos 
+            foreach (KeyValuePair<string, Viagens> kvp in uu.realizadas)
+            {
+                foreach (PontosInteresse b in kvp.Value.Pontos)
+                {
+                    if (b.Nome.Equals(a.Uid))
+                    {
+                            
+                        Notas.Text = b.desc;
+                        //falta o vai buscar cenas 
+                        // perguntar a BD  o ocunt de notas e fotos da viagem no ponto clicado
+                        // Notas =  Fotos x Fotos Y 
+                        br = true;
+                        break;
+                    }
+
+                }
+                if (br) break;
+            }
         }
         private void Button_ClickM3(object sender, RoutedEventArgs e)
         {
+            Boolean br = false;
             Shape a = (Shape)sender;
             //pontos desc
+            foreach (KeyValuePair<string, Viagens> kvp in uu.planeadas)
+            {
+             foreach( PontosInteresse b in kvp.Value.Pontos)
+                {
+                    if (b.Nome.Equals(a.Uid))
+                    {
+                        desc2.Text = b.desc;
+                        br = true;
+                        break;
+                    }
+
+                }
+                if (br) break;
+            }
+
             
-           
-            MessageBox.Show(a.Uid);
         }
 
         //Listas ------------------------------------------------------------------------------------------
@@ -278,7 +345,7 @@ namespace TravelCamel
                 mapM1.Add(p.Nome, marker);
                 mapControl.addMarker(marker);
                     
-                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++; Notas.Text = p.Mapa; }
+                if (i == 0) { mapControl.SetPositionByKeywords(p.Mapa); i++;}
 
             }
 
@@ -309,7 +376,7 @@ namespace TravelCamel
                 mapM3.Add(p.Nome, marker);
                 mapControl3.addMarker(marker);
 
-                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++; desc2.Text = p.Mapa; }
+                if (i == 0) { mapControl3.SetPositionByKeywords(p.Mapa); i++;}
 
             }
 
