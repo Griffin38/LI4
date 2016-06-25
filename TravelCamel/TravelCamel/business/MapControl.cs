@@ -14,15 +14,17 @@ namespace Travel_CamelMap
     {
         public void addMarker(GMapMarker marker)
         {
-              marker.Shape = new Ellipse
-             { Fill = Brushes.Yellow,
-             Width = 10,
-                Height = 20,
-                 Stroke = Brushes.Red,
-                 StrokeThickness = 1.5
-          };
+           
           
             this.Markers.Add(marker);
+
+
+        }
+
+        public void delMarker(GMapMarker marker)
+        {
+
+            this.Markers.Remove(marker);
 
 
         }

@@ -57,10 +57,10 @@
     		Click="Button_Click" Height="25" Margin="86,53,372.6,11.6" Grid.ColumnSpan="2" />
 
 
-                    <Button Grid.Column="0" Grid.Row="1" Content="Logout" Visibility="Hidden"
-    		    Name="logoutb"
+                    <Button Grid.Column="0" Grid.Row="1" Content="Logout" Name="logoutb"
+    		Visibility="Hidden"
     		Width="75"
-    		Click="Button_Click2" Height="25" Margin="81,58,377.6,6.6"  />
+    		Click="Button_Click2" Height="25" Margin="86,53,372.6,11.6" Grid.ColumnSpan="2" />
 
 
                 </Grid>
@@ -88,7 +88,7 @@
 
 
 
-                    <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"   />
+                    <src:MapControl Grid.Column="1" Grid.Row="0" x:Name="mapControl" Zoom="25" MaxZoom="30" MinZoom="3"    />
 
                     <TextBlock Grid.Column="0" Grid.Row="1" Name="Notas" HorizontalAlignment="Right" VerticalAlignment="Bottom"    Text="Fotos x     Notas Y "></TextBlock>
 
@@ -174,7 +174,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Name="ListaPlaneadas" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   >
+                    <ListBox Name="ListaPlaneadas" SelectionChanged="ListBox_SelectionChangedPlan" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"   >
 
                     </ListBox>
 
