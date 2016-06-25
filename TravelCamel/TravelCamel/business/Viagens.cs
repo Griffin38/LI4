@@ -23,6 +23,7 @@ namespace TravelCamel.business
 
         public Viagens(string Nom, HashSet<PontosInteresse> Po)
         {
+            Pontos = new HashSet<PontosInteresse>();
             Nome = Nom;
             IEnumerator enumerator = Po.GetEnumerator();
             while (enumerator.MoveNext())

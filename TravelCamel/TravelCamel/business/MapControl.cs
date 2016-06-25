@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using GMap.NET.WindowsPresentation;
 using GMap.NET;
+using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace Travel_CamelMap
 {
     class MapControl : GMapControl
     {
-        public void addMarker(float lat, float longi)
+        public void addMarker(GMapMarker marker)
         {
-
-            GMapMarker marker = new GMapMarker(new PointLatLng(lat, longi));
+             
+          
             this.Markers.Add(marker);
 
 
