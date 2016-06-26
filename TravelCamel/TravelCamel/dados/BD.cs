@@ -312,6 +312,105 @@ namespace TravelCamel.dados
            
             return ret;
         }
+
+        public int NFotos(int v , int p)
+        {
+            int ret= 0;
+            SqlCommand command1 = new SqlCommand("SELECT COUNT(id) FROM Informacoes WHERE idViagem = @0 and idPonto = @1 and TipoInfor = 1 ", connection);
+            command1.Parameters.Add(new SqlParameter("@0", v));
+            command1.Parameters.Add(new SqlParameter("@1", p));
+            try
+            {
+                using (SqlDataReader reader = command1.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader.Read())
+                    {
+                        ret += (int)reader[0];
+                    }
+                }
+
+
+
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show("Erro, " + er.Message);
+
+            }
+            return ret;
+        }
+        public int Nnotas(int v, int p)
+        {
+            int ret = 0;
+            SqlCommand command1 = new SqlCommand("SELECT COUNT(id) FROM Informacoes WHERE idViagem = @0 and idPonto = @1 and TipoInfor = 2 ", connection);
+            command1.Parameters.Add(new SqlParameter("@0", v));
+            command1.Parameters.Add(new SqlParameter("@1", p));
+            try
+            {
+                using (SqlDataReader reader = command1.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader.Read())
+                    {
+                        ret += (int)reader[0];
+                    }
+                }
+
+
+
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show("Erro, " + er.Message);
+
+            }
+            return ret;
+
+
+        }
+        public string InfPV(string viagem,string ponto)
+        {
+            String ret = "";
+            int a = 0;
+            int b = 0;
+            SqlCommand command1 = new SqlCommand("SELECT idViagem FROM dbo.Viagem WHERE Nome = @0 ", connection);
+            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Pontos_Interesse WHERE Nome = @0 ", connection);
+            command1.Parameters.Add(new SqlParameter("@0", viagem));
+            command2.Parameters.Add(new SqlParameter("@0", ponto));
+            try
+            {
+                using (SqlDataReader reader = command1.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader.Read())
+                    {
+                       a= (int)reader[0];
+                      
+                    }
+                 
+
+                }
+                using (SqlDataReader reader2 = command2.ExecuteReader())
+                {
+
+                    if (reader2.Read())
+                    {
+
+                        b = (int)reader2[0];
+                    }
+                }
+
+                ret = "Notas " + Nnotas(a, b) + "\nFotos " + NFotos(a, b);
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show("Erro, " + er.Message);
+
+            }
+            return ret;
+        }
+        //construtor
         public BD()
         {
             connect();
