@@ -279,7 +279,7 @@ namespace TravelCamel
             mapM1 = new Dictionary<string, GMapMarker>();
             //new setMap
 
-            setMap(uu.realizadas[ListaCompletas.SelectedItem.ToString()]);
+            if (ListaCompletas.SelectedItem != null) setMap(uu.realizadas[ListaCompletas.SelectedItem.ToString()]);
 
         }
 
@@ -313,7 +313,7 @@ namespace TravelCamel
             mapM3 = new Dictionary<string, GMapMarker>();
             //new setMap
 
-            setMap3(uu.planeadas[ListaPlaneadas.SelectedItem.ToString()]);
+            if (ListaPlaneadas.SelectedItem != null)  setMap3(uu.planeadas[ListaPlaneadas.SelectedItem.ToString()]);
 
         }
 
