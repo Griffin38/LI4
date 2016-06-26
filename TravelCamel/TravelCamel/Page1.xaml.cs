@@ -221,36 +221,34 @@ namespace TravelCamel
 
         private void Button_ClickM1(object sender, RoutedEventArgs e)
         {
-            Boolean br = false;
+         
             Shape a = (Shape)sender;
             //pontos 
-            foreach (KeyValuePair<string, Viagens> kvp in uu.realizadas)
-            {
-                foreach (PontosInteresse b in kvp.Value.Pontos)
+            if (ListaCompletas.SelectedItem == null) { ListaCompletas.SelectedItem = ListaCompletas.Items.GetItemAt(0); }
+            Viagens b = uu.realizadas[ListaCompletas.SelectedItem.ToString()];
+                foreach (PontosInteresse c in b.Pontos)
                 {
-                    if (b.Nome.Equals(a.Uid))
+                    if (c.Nome.Equals(a.Uid))
                     {
-                            
-                        Notas.Text = b.desc;
-                        //falta o vai buscar cenas 
-                        // perguntar a BD  o ocunt de notas e fotos da viagem no ponto clicado
-                        // Notas =  Fotos x Fotos Y 
-                        br = true;
+
+                    Notas.Text = con.InfPV(b.Nome, c.Nome);
+                      
+                      
                         break;
                     }
 
-                }
-                if (br) break;
+               
             }
         }
         private void Button_ClickM3(object sender, RoutedEventArgs e)
         {
+
             Boolean br = false;
             Shape a = (Shape)sender;
             //pontos desc
             foreach (KeyValuePair<string, Viagens> kvp in uu.planeadas)
             {
-             foreach( PontosInteresse b in kvp.Value.Pontos)
+                foreach (PontosInteresse b in kvp.Value.Pontos)
                 {
                     if (b.Nome.Equals(a.Uid))
                     {
@@ -263,7 +261,7 @@ namespace TravelCamel
                 if (br) break;
             }
 
-            
+
         }
 
         //Listas ------------------------------------------------------------------------------------------
@@ -281,7 +279,7 @@ namespace TravelCamel
             mapM1 = new Dictionary<string, GMapMarker>();
             //new setMap
 
-            setMap(uu.realizadas[ListaCompletas.SelectedItem.ToString()]);
+            if (ListaCompletas.SelectedItem != null) setMap(uu.realizadas[ListaCompletas.SelectedItem.ToString()]);
 
         }
 
@@ -315,7 +313,7 @@ namespace TravelCamel
             mapM3 = new Dictionary<string, GMapMarker>();
             //new setMap
 
-            setMap3(uu.planeadas[ListaPlaneadas.SelectedItem.ToString()]);
+            if (ListaPlaneadas.SelectedItem != null)  setMap3(uu.planeadas[ListaPlaneadas.SelectedItem.ToString()]);
 
         }
 
