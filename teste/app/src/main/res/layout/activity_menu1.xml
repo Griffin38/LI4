@@ -14,6 +14,7 @@
         android:id="@+id/Mapa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="abrirMapa"
         android:text="Descarregar nova viagem" />
     <Button
         android:id="@+id/Desc"
