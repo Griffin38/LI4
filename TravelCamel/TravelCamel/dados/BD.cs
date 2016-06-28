@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows;
 using TravelCamel.business;
+using System.Data;
 
 namespace TravelCamel.dados
 {
@@ -52,7 +53,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("There was an error reported by SQL Server, " + er.Message);
+                MessageBox.Show("Erro a procurar cidade, " + er.Message);
             }
           
 
@@ -135,7 +136,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("Pais , " + er.Message);
 
             }
             return ret;
@@ -173,10 +174,10 @@ namespace TravelCamel.dados
             IDictionary<string, Viagens> ret = new Dictionary<string, Viagens>();
             HashSet<PontosInteresse> a = new HashSet<PontosInteresse>();
             Viagens b = new Viagens();
-            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @0 and Datafim < GETDATE()", connection);
-            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @0 and DataObservacao IS NULL", connection);
+            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @re and Datafim < GETDATE()", connection);
+            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @re2 and DataObservacao IS NULL", connection);
 
-            command1.Parameters.Add(new SqlParameter("@0", userID));
+            command1.Parameters.Add(new SqlParameter("@re", userID));
             try
             {
                
@@ -185,7 +186,7 @@ namespace TravelCamel.dados
                     // while there is another record present
                     while (reader.Read())
                     {   a = new HashSet<PontosInteresse>(); ;
-                        command2.Parameters.Add(new SqlParameter("@0", reader[0]));
+                        command2.Parameters.Add(new SqlParameter("@re2", reader[0]));
                         using (SqlDataReader reader2 = command2.ExecuteReader())
                         {
 
@@ -210,21 +211,24 @@ namespace TravelCamel.dados
             }
             catch (Exception er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("Viagens realizadas , " + er.Message);
 
             }
 
             return ret;
         }
+
+
+
         public IDictionary<string, Viagens> planeadasUser(int userID)
         {
             IDictionary<string, Viagens> ret = new Dictionary<string, Viagens>();
             HashSet<PontosInteresse> a = new HashSet<PontosInteresse>();
             Viagens b = new Viagens();
       
-            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @0 and DataInicio > GETDATE()", connection);
-            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @0 and DataObservacao IS NULL", connection);
-            command1.Parameters.Add(new SqlParameter("@0", userID));
+            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @pl and DataInicio > GETDATE()", connection);
+            SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @p2 and DataObservacao IS NULL", connection);
+            command1.Parameters.Add(new SqlParameter("@pl", userID));
             try
             {
                 using (SqlDataReader reader = command1.ExecuteReader())
@@ -233,7 +237,7 @@ namespace TravelCamel.dados
                     while (reader.Read())
                     {
                         a = new HashSet<PontosInteresse>(); ;
-                        command2.Parameters.Add(new SqlParameter("@0", reader[0]));
+                        command2.Parameters.Add(new SqlParameter("@p2", reader[0]));
                         using (SqlDataReader reader2 = command2.ExecuteReader())
                         {
 
@@ -258,12 +262,83 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("Viagens PLaneadas, " + er.Message);
 
             }
 
             return ret;
 
+        }
+
+
+        private void addI(HashSet<String> pontos, int res)
+        {
+            int idponto = 0;
+            foreach (String s in pontos)
+            {
+                SqlCommand command1 = new SqlCommand("SELECT idPonto FROM dbo.Pontos_Interesse where Nome = @0", connection);
+                command1.Parameters.Add(new SqlParameter("@0", s));
+                using (SqlDataReader reader2 = command1.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader2.Read())
+                    {
+                        idponto = (int)reader2[0];
+                    }
+                }
+                SqlCommand commandi2 = new SqlCommand("INSERT INTO dbo.Informacoes (DataObservacao, TipoInfor,Comentario,Url,idViagem,idPonto) VALUES(NULL,0,NULL,NULL,@0,@1)", connection);
+                commandi2.Parameters.Add(new SqlParameter("@0", res));
+                commandi2.Parameters.Add(new SqlParameter("@1", idponto));
+
+                commandi2.ExecuteNonQuery();
+            }
+
+        }
+
+
+
+        internal void NovaViagem(string nome, string nomeV, DateTime datai, HashSet<String> pontos)
+        {
+            int id = 0, idponto = 0;
+            SqlCommand command = new SqlCommand("SELECT idUtilizador FROM dbo.Utilizador WHERE Nome = @0", connection);
+            command.Parameters.Add(new SqlParameter("@0", nome));
+            try
+            {
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader.Read())
+                    {
+                        id = (int)reader[0];
+                    }
+                }
+                SqlCommand commandi = new SqlCommand("insert into dbo.Viagem (Nome,DataInicio,DataFim,idUtilizador) values(@0 ,@1,NULL,@2);", connection);
+                commandi.Parameters.Add(new SqlParameter("@0", nomeV));
+                commandi.Parameters.Add(new SqlParameter("@1", datai));
+                commandi.Parameters.Add(new SqlParameter("@2", id));
+
+              
+                SqlParameter IDParameter = new SqlParameter("@ID", SqlDbType.Int);
+                IDParameter.Direction = ParameterDirection.Output;
+                commandi.Parameters.Add(IDParameter);
+                
+
+               int  res = Convert.ToInt32(commandi.ExecuteScalar());
+             
+             
+               
+                if (res != 0)
+                {
+                    addI(pontos, res);
+                }
+              
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show("Nova viagem Error, " + er.Message);
+
+            }
         }
 
         public Utilizador loggedIN(string nick)
@@ -305,7 +380,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("User Error, " + er.Message);
 
             }
 
@@ -335,7 +410,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("NFOtos , " + er.Message);
 
             }
             return ret;
@@ -362,7 +437,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("ENNoras Erro, " + er.Message);
 
             }
             return ret;
@@ -405,7 +480,7 @@ namespace TravelCamel.dados
             }
             catch (SqlException er)
             {
-                MessageBox.Show("Erro, " + er.Message);
+                MessageBox.Show("Inf, " + er.Message);
 
             }
             return ret;
