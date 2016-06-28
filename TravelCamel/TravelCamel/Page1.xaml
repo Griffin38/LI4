@@ -139,20 +139,24 @@
 
                     <src:MapControl Grid.Column="1" Grid.Row="1" x:Name="mapControl2" Zoom="25" MaxZoom="30" MinZoom="3"   />
 
-                    <TextBox Grid.Column="0" Grid.Row="2" Name="Desc"  TextWrapping="Wrap"    AcceptsReturn="True"  IsReadOnly="True" Margin="6,0,0,6.6"/>
+                    <TextBox Grid.Column="0" Grid.Row="2" Name="Desc"  TextWrapping="Wrap"    AcceptsReturn="True"  IsReadOnly="True" Margin="6,0,14,6.6"/>
 
 
 
-                    <Button Grid.Column="1" Grid.Row="2" Content="Adicionar Ponto"
+                    <Button Grid.Row="2" Content="Adicionar"
     		HorizontalAlignment="Right"
     		VerticalAlignment="Bottom"
-    		Width="98"
-    		Click="Button_ClickPonto" Height="20" Margin="0,0,182.6,56.6"/>
+    		Width="80"
+    		Click="Button_ClickPonto" Height="20" Margin="0,0,242.6,6.6" Grid.Column="1"/>
                     <Button  Grid.Column="1" Grid.Row="2" Content="Completar"
     		HorizontalAlignment="Right"
     		VerticalAlignment="Bottom"
     		Width="65"
-    		Click="Button_ClickFim" Height="20" Margin="0,0,199.6,26.6"/>
+    		Click="Button_ClickFim" Height="20" Margin="0,0,157.6,6.6"/>
+
+                    <TextBox Grid.Column="1" Grid.Row="2" Name="NomeV" Width="200" Margin="11,8,182.6,61.6" Text="Nome da Viagem" />
+                    <TextBox Grid.Column="1" Grid.Row="2" Name="DataI" Width="200" Margin="11,38,182.6,31.6" Text="Data de Inicio"/>
+
 
 
                 </Grid>
