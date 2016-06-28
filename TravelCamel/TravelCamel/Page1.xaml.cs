@@ -67,6 +67,7 @@ namespace TravelCamel
             foreach (KeyValuePair<string, Viagens> kvp in uu.planeadas)
             {
                 ListaPlaneadas.Items.Add(kvp.Key);
+               
                 if (i == 0)
                 {
                     setMap3(kvp.Value);
@@ -224,7 +225,7 @@ namespace TravelCamel
          
             reset();
 
-            uu = con.loggedIN(uu.Nome);
+            uu = con.loggedIN(uu.Nick);
             preencheListas();
             //popup perguntar nome e data de inicio
             //     -   -    ok cancelar
@@ -354,7 +355,7 @@ namespace TravelCamel
             int i = 0; 
             foreach (PontosInteresse p in v.Pontos){
 
-                
+              
                 GMapMarker marker = new GMapMarker(new PointLatLng(p.longi,p.lati));
 
 

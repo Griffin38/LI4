@@ -46,7 +46,7 @@ namespace TravelCamel.dados
                     {
                         cidID = (int)reader[0];
 
-
+                        
                     }
                 }
                 if (cidID != 0) {  HashSet<PontosInteresse> au= getPontos(cidID);  b = new Cidade(cidade,au); }
@@ -174,10 +174,10 @@ namespace TravelCamel.dados
             IDictionary<string, Viagens> ret = new Dictionary<string, Viagens>();
             HashSet<PontosInteresse> a = new HashSet<PontosInteresse>();
             Viagens b = new Viagens();
-            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @re and Datafim < GETDATE()", connection);
+            SqlCommand command1 = new SqlCommand("SELECT idViagem,Nome FROM dbo.Viagem WHERE idUtilizador = @r and Datafim < GETDATE()", connection);
             SqlCommand command2 = new SqlCommand("SELECT idPonto FROM dbo.Informacoes WHERE idViagem = @re2 and DataObservacao IS NULL", connection);
 
-            command1.Parameters.Add(new SqlParameter("@re", userID));
+            command1.Parameters.Add(new SqlParameter("@r", userID));
             try
             {
                
@@ -186,6 +186,7 @@ namespace TravelCamel.dados
                     // while there is another record present
                     while (reader.Read())
                     {   a = new HashSet<PontosInteresse>(); ;
+                        command2.Parameters.Clear();
                         command2.Parameters.Add(new SqlParameter("@re2", reader[0]));
                         using (SqlDataReader reader2 = command2.ExecuteReader())
                         {
@@ -201,8 +202,9 @@ namespace TravelCamel.dados
 
 
 
-                        b = new Viagens((string)reader[1],a);
+                        b = new Viagens((string)reader[1], a);
                         ret.Add((string)reader[1], b);
+
                     }
                 }
 
@@ -237,6 +239,7 @@ namespace TravelCamel.dados
                     while (reader.Read())
                     {
                         a = new HashSet<PontosInteresse>(); ;
+                        command2.Parameters.Clear();
                         command2.Parameters.Add(new SqlParameter("@p2", reader[0]));
                         using (SqlDataReader reader2 = command2.ExecuteReader())
                         {
@@ -247,13 +250,14 @@ namespace TravelCamel.dados
                                 PontosInteresse p = getPonto((int)reader2[0]);
                                 a.Add(p);
                             }
+
                         }
 
 
 
 
                         b = new Viagens((string)reader[1], a);
-                        ret.Add((string)reader[1],b);
+                        ret.Add((string)reader[1], b);
                     }
                 }
 
@@ -297,7 +301,7 @@ namespace TravelCamel.dados
 
 
 
-        internal void NovaViagem(string nome, string nomeV, DateTime datai, HashSet<String> pontos)
+        public void NovaViagem(string nome, string nomeV, DateTime datai, HashSet<String> pontos)
         {
             int id = 0, idponto = 0;
             SqlCommand command = new SqlCommand("SELECT idUtilizador FROM dbo.Utilizador WHERE Nome = @0", connection);
@@ -318,28 +322,39 @@ namespace TravelCamel.dados
                 commandi.Parameters.Add(new SqlParameter("@1", datai));
                 commandi.Parameters.Add(new SqlParameter("@2", id));
 
-              
-                SqlParameter IDParameter = new SqlParameter("@ID", SqlDbType.Int);
-                IDParameter.Direction = ParameterDirection.Output;
-                commandi.Parameters.Add(IDParameter);
-                
 
-               int  res = Convert.ToInt32(commandi.ExecuteScalar());
-             
-             
-               
+
+                commandi.ExecuteNonQuery();
+
+                int res = 0;
+                SqlCommand command2 = new SqlCommand("SELECT idViagem FROM dbo.Viagem WHERE Nome = @Nome", connection);
+                command2.Parameters.Add(new SqlParameter("@Nome", nomeV));
+
+
+                using (SqlDataReader reader2 = command2.ExecuteReader())
+                {
+                    // while there is another record present
+                    if (reader2.Read())
+                    {
+                        res = (int)reader2[0];
+                    }
+                }
+
+
                 if (res != 0)
                 {
+                    
                     addI(pontos, res);
                 }
-              
+
             }
             catch (SqlException er)
             {
                 MessageBox.Show("Nova viagem Error, " + er.Message);
 
             }
-        }
+            }
+            
 
         public Utilizador loggedIN(string nick)
         { int id = 0;
